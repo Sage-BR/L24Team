@@ -9,7 +9,7 @@
 #                                              #
 #                                              #
 #              Download pathnode :             #
-#    http://l24team.com/index.php?topic=7	   #
+#    https://4teambr.com/index.php?topic=7	   #
 #                                              #
 ################################################
 

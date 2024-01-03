@@ -4587,7 +4587,7 @@ public final class Config
 			loadPvpConfig();
 			loadCraftConfig();
 
-			// Frozen config
+			// 4Team config
 			loadCTFConfig();
 			loadDMConfig();
 			loadL24TeamConfig();

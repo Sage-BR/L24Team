@@ -28,7 +28,6 @@ import org.apache.log4j.Logger;
 
 import com.l24team.Config;
 import com.l24team.L2Properties;
-import com.l24team.gameserver.datatables.sql.ItemTable;
 import com.l24team.gameserver.templates.L2Item;
 
 import javolution.util.FastList;
@@ -69,10 +68,6 @@ public class PowerPakConfig
 	public static boolean NPCBUFFER_STORE_SCHEMES;
 	public static int NPCBUFFER_STATIC_BUFF_COST;
 
-	public static boolean XMLRPC_ENABLED;
-	public static int XMLRPC_PORT;
-	public static String XMLRPC_HOST;
-
 	public static List<String> GLOBALGK_EXCLUDE_ON;
 	public static boolean GLOBALGK_ENABDLED;
 	public static boolean GLOBALGK_USEBBS;
@@ -88,28 +83,6 @@ public class PowerPakConfig
 	public static String GMSHOP_COMMAND;
 	public static List<String> GMSHOP_EXCLUDE_ON;
 	public static boolean GMSHOP_USECOMMAND;
-
-	public static boolean WEBSERVER_ENABLED;
-	public static int WEBSERVER_PORT;
-	public static String WEBSERVER_HOST;
-
-	public static boolean L2TOPDEMON_ENABLED;
-
-	public static int L2TOPDEMON_POLLINTERVAL;
-
-	public static boolean L2TOPDEMON_IGNOREFIRST;
-
-	public static int L2TOPDEMON_MIN;
-
-	public static int L2TOPDEMON_MAX;
-
-	public static int L2TOPDEMON_ITEM;
-
-	public static String L2TOPDEMON_MESSAGE;
-
-	public static String L2TOPDEMON_URL;
-
-	public static String L2TOPDEMON_PREFIX;
 
 	// Vote Reward System Configs
 	public static int VOTES_FOR_REWARD;
@@ -309,29 +282,6 @@ public class PowerPakConfig
 			{
 				GMSHOP_EXCLUDE_ON.add(st.nextToken().toUpperCase());
 			}
-
-			XMLRPC_ENABLED = Boolean.parseBoolean(p.getProperty("XMLRPCEnabled", "true"));
-			XMLRPC_HOST = p.getProperty("XMLRPCHost", "localhost");
-			XMLRPC_PORT = Integer.parseInt(p.getProperty("XMLRPCPort", "7000"));
-
-			L2TOPDEMON_ENABLED = Boolean.parseBoolean(p.getProperty("L2TopDeamonEnabled", "false"));
-			L2TOPDEMON_URL = p.getProperty("L2TopDeamonURL", "");
-			L2TOPDEMON_POLLINTERVAL = Integer.parseInt(p.getProperty("L2TopDeamonPollInterval", "5"));
-			L2TOPDEMON_PREFIX = p.getProperty("L2TopDeamonPrefix", "");
-			L2TOPDEMON_ITEM = Integer.parseInt(p.getProperty("L2TopDeamonRewardItem", "0"));
-			L2TOPDEMON_MESSAGE = L2Utils.loadMessage(p.getProperty("L2TopDeamonMessage", ""));
-			L2TOPDEMON_MIN = Integer.parseInt(p.getProperty("L2TopDeamonMin", "1"));
-			L2TOPDEMON_MAX = Integer.parseInt(p.getProperty("L2TopDeamonMax", "1"));
-			L2TOPDEMON_IGNOREFIRST = Boolean.parseBoolean(p.getProperty("L2TopDeamonDoNotRewardAtFirstTime", "false"));
-			if (ItemTable.getInstance().getTemplate(L2TOPDEMON_ITEM) == null)
-			{
-				L2TOPDEMON_ENABLED = false;
-				LOGGER.error("Powerpak: Unknown item (" + L2TOPDEMON_ITEM + ") as vote reward. Vote disabled");
-			}
-
-			WEBSERVER_ENABLED = Boolean.parseBoolean(p.getProperty("WebServerEnabled", "true"));
-			WEBSERVER_HOST = p.getProperty("WebServerHost", "localhost");
-			WEBSERVER_PORT = Integer.parseInt(p.getProperty("WebServerPort", "8080"));
 
 			AUTOVOTEREWARD_ENABLED = Boolean.parseBoolean(p.getProperty("VoteRewardSystem", "true"));
 			VOTES_FOR_REWARD = Integer.parseInt(p.getProperty("VotesRequiredForReward", "100"));

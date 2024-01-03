@@ -295,7 +295,7 @@ public class EnterWorld extends L2GameClientPacket
 
 		// Credits to l24team
 		activeChar.sendMessage("This server uses l24team, a project founded by L2Chef and");
-		activeChar.sendMessage("developed by the l24team Dev Team at l24team.com");
+		activeChar.sendMessage("developed by the l24team Dev Team at 4teambr.com");
 
 		SevenSigns.getInstance().sendCurrentPeriodMsg(activeChar);
 		Announcements.getInstance().showAnnouncements(activeChar);

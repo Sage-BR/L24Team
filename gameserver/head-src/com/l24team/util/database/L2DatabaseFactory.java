@@ -50,15 +50,10 @@ public abstract class L2DatabaseFactory
 	{
 		if (_instance == null)
 		{
-			if (Config.DATABASE_POOL_TYPE.equals("BoneCP"))
-			{
-				_instance = new L2DatabaseFactory_BoneCP();
-			}
-			else
+			if (Config.DATABASE_POOL_TYPE.equals("c3p0"))
 			{
 				_instance = new L2DatabaseFactory_c3p0();
 			}
-
 		}
 		return _instance;
 	}
