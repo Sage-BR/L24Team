@@ -84,21 +84,6 @@ public class PowerPakConfig
 	public static List<String> GMSHOP_EXCLUDE_ON;
 	public static boolean GMSHOP_USECOMMAND;
 
-	// Vote Reward System Configs
-	public static int VOTES_FOR_REWARD;
-
-	public static String VOTES_REWARDS;
-	public static String VOTES_SITE_TOPZONE_URL;
-	public static String VOTES_SITE_HOPZONE_URL;
-	public static String VOTES_SITE_L2NETWORK_URL;
-	public static FastMap<Integer, Integer> VOTES_REWARDS_LIST;
-
-	public static int VOTES_SYSYEM_INITIAL_DELAY;
-	public static int VOTES_SYSYEM_STEP_DELAY;
-
-	public static String SERVER_WEB_SITE;
-	public static boolean AUTOVOTEREWARD_ENABLED;
-
 	public static boolean ENABLE_SAY_SOCIAL_ACTIONS;
 
 	public static boolean CHAR_REPAIR;
@@ -282,36 +267,7 @@ public class PowerPakConfig
 			{
 				GMSHOP_EXCLUDE_ON.add(st.nextToken().toUpperCase());
 			}
-
-			AUTOVOTEREWARD_ENABLED = Boolean.parseBoolean(p.getProperty("VoteRewardSystem", "true"));
-			VOTES_FOR_REWARD = Integer.parseInt(p.getProperty("VotesRequiredForReward", "100"));
-			VOTES_SYSYEM_INITIAL_DELAY = Integer.parseInt(p.getProperty("VotesSystemInitialDelay", "60000"));
-			VOTES_SYSYEM_STEP_DELAY = Integer.parseInt(p.getProperty("VotesSystemStepDelay", "1800000"));
-			VOTES_SITE_HOPZONE_URL = p.getProperty("VotesSiteHopZoneUrl", "");
-			VOTES_SITE_TOPZONE_URL = p.getProperty("VotesSiteTopZoneUrl", "");
-			VOTES_SITE_L2NETWORK_URL = p.getProperty("VotesSiteL2NetworkUrl", "");
-			SERVER_WEB_SITE = p.getProperty("ServerWebSite", "");
-			VOTES_REWARDS = p.getProperty("VotesRewards", "");
-			VOTES_REWARDS_LIST = new FastMap<>();
-
-			final String[] splitted_VOTES_REWARDS = VOTES_REWARDS.split(";");
-
-			for (final String reward : splitted_VOTES_REWARDS)
-			{
-
-				final String[] item_count = reward.split(",");
-
-				if (item_count.length != 2)
-				{
-					LOGGER.info("[VotesRewards]: invalid config property -> VotesRewards \"" + VOTES_REWARDS + "\"");
-				}
-				else
-				{
-					VOTES_REWARDS_LIST.put(Integer.parseInt(item_count[0]), Integer.parseInt(item_count[1]));
-				}
-
-			}
-
+			
 			ENABLE_SAY_SOCIAL_ACTIONS = Boolean.parseBoolean(p.getProperty("EnableSocialSayActions", "false"));
 
 			CHAR_REPAIR = Boolean.parseBoolean(p.getProperty("CharacterRepair", "False"));

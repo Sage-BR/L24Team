@@ -29,7 +29,6 @@ import com.l24team.Config;
 import com.l24team.gameserver.communitybbs.CommunityBoard;
 import com.l24team.gameserver.datatables.BufferSkillsTable;
 import com.l24team.gameserver.datatables.CharSchemesTable;
-import com.l24team.gameserver.handler.AutoVoteRewardHandler;
 import com.l24team.gameserver.handler.VoicedCommandHandler;
 import com.l24team.gameserver.handler.custom.CustomBypassHandler;
 import com.l24team.gameserver.handler.voicedcommandhandlers.Repair;
@@ -133,12 +132,6 @@ public class PowerPak
 				VoicedCommandHandler.getInstance().registerVoicedCommandHandler(repair_handler);
 				CustomBypassHandler.getInstance().registerCustomBypassHandler(repair_handler);
 				LOGGER.info("Char Repair is Enabled.");
-			}
-
-			// Vote Reward System
-			if (PowerPakConfig.AUTOVOTEREWARD_ENABLED)
-			{
-				AutoVoteRewardHandler.getInstance();
 			}
 		}
 	}

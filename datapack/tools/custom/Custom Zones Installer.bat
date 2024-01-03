@@ -3,8 +3,10 @@
 REM ###############################################
 REM ## Configurate Database Connections please!  ##
 REM ###############################################
-REM Please, type here you dir to mysql directory \bin. Example : C:\Program Files\MySQL\MySQL Server 5.1\bin
-set mysqlBinPath=C:\Program Files\MySQL\MySQL Server 5.1\bin
+echo Checking environment...
+mysql --help >nul 2>nul
+if errorlevel 1 goto nomysql
+echo   - MySQL: OK
 
 set DateT=%date%
 
@@ -15,14 +17,10 @@ set gsdb=gameserver_beta
 set gshost=localhost
 REM ############################################
 
-set mysqldumpPath="%mysqlBinPath%\mysqldump"
-set mysqlPath="%mysqlBinPath%\mysql"
-
-
 :Step1
 echo. ---------------------------------------------------------------------
 echo.
-echo.   L2-4Team Team - Custom Zones Installer 
+echo.   L2-4Team - Custom Zones Installer 
 echo. _____________________________________________________________________
 echo.
 echo.   1 - Install Monastery Custom Zone (Powered Mobs (lvl85), Gold Tokens Spoil (10% just on all mobs), TOP76LS and HIGH76LS on few mobs spoil (15%), High EXP/Adena(4x) drop)
@@ -48,7 +46,7 @@ goto Step1
 :MonasteryInstall
 
 echo *** Installing Monastery Custom Zone ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/monastery_custom_zone.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/monastery_custom_zone.sql
 echo *** Done ***
 
 goto Step1
@@ -58,7 +56,7 @@ goto Step1
 :ACMInstall
 
 echo *** Installing ACM Custom Zone ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/acm_custom_zone.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/acm_custom_zone.sql
 echo *** Done ***
 
 goto Step1
@@ -68,7 +66,7 @@ goto Step1
 :ImperialTombInstall
 
 echo *** Installing Imperial Custom Zone ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/imperial_custom_zone.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/imperial_custom_zone.sql
 echo *** Done ***
 
 goto Step1
@@ -78,15 +76,15 @@ goto Step1
 :FullInstall
 
 echo *** Installing Monastery Custom Zone ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/monastery_custom_zone.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/monastery_custom_zone.sql
 echo *** Done ***
 
 echo *** Installing ACM Custom Zone ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/acm_custom_zone.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/acm_custom_zone.sql
 echo *** Done ***
 
 echo *** Installing Imperial Custom Zone ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/imperial_custom_zone.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/imperial_custom_zone.sql
 echo *** Done ***
 
 goto Step1
@@ -96,7 +94,7 @@ goto Step1
 :Revert
 
 echo *** Reverting Custom Zones to retail ***
-%mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/restore_retail_drops_npcs.sql
+mysql -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../../sql/custom_zones/restore_retail_drops_npcs.sql
 echo *** Done ***
 
 goto Step1

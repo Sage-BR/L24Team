@@ -12,15 +12,15 @@ set DateT=%date%
 
 REM Configurate database connection loginserver
 set lsuser=root
-set lspass=root
-set lsdb=loginserver_beta
-set lshost=localhost
+set lspass=Sa@26071989
+set lsdb=l2jdb
+set lshost=192.168.18.88
 
 REM Configurate database connection Gameserver
 set gsuser=root
-set gspass=root
-set gsdb=gameserver_beta
-set gshost=localhost
+set gspass=Sa@26071989
+set gsdb=l2jdb
+set gshost=192.168.18.88
 REM ############################################
 
 :Step1

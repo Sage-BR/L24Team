@@ -27,7 +27,7 @@ REM ############################################
 cls
 echo. ---------------------------------------------------------------------
 echo.
-echo.   L2-4Team Team - Database Login Server
+echo.   L2-4Team - Database Login Server
 echo. _____________________________________________________________________
 echo.
 echo.   1 - Full install database loginserver`s.
@@ -61,7 +61,7 @@ goto :Step2
 
 echo. ---------------------------------------------------------------------
 echo.
-echo.   L2-4Team Team - database operation about gameserver
+echo.   L2-4Team - database operation about gameserver
 echo. _____________________________________________________________________
 echo.
 echo.   1 - Full Install Gameserver Database`s.
