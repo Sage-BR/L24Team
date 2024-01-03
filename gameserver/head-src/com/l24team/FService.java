@@ -54,7 +54,7 @@ public class FService
 	public static final String ACCESS_CONFIGURATION_FILE = "./config/functions/access.properties";
 	public static final String CRAFTING = "./config/functions/crafting.properties";
 	public static final String DEVELOPER = "./config/functions/developer.properties";
-	public static final String l24team_CONFIG_FILE = "./config/functions/l24team.properties";
+	public static final String L24Mods_CONFIG_FILE = "./config/functions/L24Mods.properties";
 	public static final String PHYSICS_CONFIGURATION_FILE = "./config/functions/physics.properties";
 	public static final String PVP_CONFIG_FILE = "./config/functions/pvp.properties";
 	public static final String POWERPAK_FILE = "./config/powerpak/powerpak.properties";
@@ -66,7 +66,7 @@ public class FService
 	public static final String PROTECT_PACKET_CONFIG_FILE = "./config/protected/packets.properties";
 
 	// Gates of File configs
-	public static final String L24Team_CONFIG_FILE = "./config/frozen/frozen.properties";
+	public static final String L24Team_CONFIG_FILE = "./config/l24team/l24team.properties";
 	public static final String EVENT_CTF_FILE = "./config/frozen/ctf.properties";
 	public static final String EVENT_DM_FILE = "./config/frozen/dm.properties";
 	public static final String EVENT_TVT_FILE = "./config/frozen/tvt.properties";

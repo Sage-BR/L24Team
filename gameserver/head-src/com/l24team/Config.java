@@ -1765,75 +1765,6 @@ public final class Config
 	}
 
 	// ============================================================
-	public static boolean IRC_ENABLED;
-	public static boolean IRC_LOG_CHAT;
-	public static boolean IRC_SSL;
-	public static String IRC_SERVER;
-	public static int IRC_PORT;
-	public static String IRC_PASS;
-	public static String IRC_NICK;
-	public static String IRC_USER;
-	public static String IRC_NAME;
-	public static boolean IRC_NICKSERV;
-	public static String IRC_NICKSERV_NAME;
-	public static String IRC_NICKSERV_COMMAND;
-	public static String IRC_LOGIN_COMMAND;
-	public static String IRC_CHANNEL;
-	public static String IRC_FROM_GAME_TYPE;
-	public static String IRC_TO_GAME_TYPE;
-	public static String IRC_TO_GAME_SPECIAL_CHAR;
-	public static String IRC_TO_GAME_DISPLAY;
-	public static boolean IRC_ANNOUNCE;
-	public static String IRC_NO_GM_MSG;
-	public static String IRC_NO_PLAYER_ONLINE;
-	public static String IRC_PLAYER_ONLINE;
-	public static String IRC_MSG_START;
-
-	// ============================================================
-
-	public static void loadIRCConfig()
-	{
-		final String IRC_FILE = FService.IRC_FILE;
-
-		try
-		{
-			final Properties IRCSettings = new Properties();
-			final InputStream is = new FileInputStream(new File(IRC_FILE));
-			IRCSettings.load(is);
-			is.close();
-
-			IRC_ENABLED = Boolean.parseBoolean(IRCSettings.getProperty("Enable", "false"));
-			IRC_LOG_CHAT = Boolean.parseBoolean(IRCSettings.getProperty("LogChat", "false"));
-			IRC_SSL = Boolean.parseBoolean(IRCSettings.getProperty("SSL", "false"));
-			IRC_SERVER = IRCSettings.getProperty("Server", "localhost");
-			IRC_PORT = Integer.parseInt(IRCSettings.getProperty("Port", "6667"));
-			IRC_PASS = IRCSettings.getProperty("Pass", "localhost");
-			IRC_NICK = IRCSettings.getProperty("Nick", "l24teamBot");
-			IRC_USER = IRCSettings.getProperty("User", "l24team");
-			IRC_NAME = IRCSettings.getProperty("Name", "l24team");
-			IRC_NICKSERV = Boolean.parseBoolean(IRCSettings.getProperty("NickServ", "false"));
-			IRC_NICKSERV_NAME = IRCSettings.getProperty("NickservName", "nickserv");
-			IRC_NICKSERV_COMMAND = IRCSettings.getProperty("NickservCommand", "");
-			IRC_LOGIN_COMMAND = IRCSettings.getProperty("LoginCommand", "");
-			IRC_CHANNEL = IRCSettings.getProperty("Channel", "#mychan");
-			IRC_ANNOUNCE = Boolean.parseBoolean(IRCSettings.getProperty("IrcAnnounces", "false"));
-			IRC_FROM_GAME_TYPE = IRCSettings.getProperty("GameToIrcType", "off");
-			IRC_TO_GAME_TYPE = IRCSettings.getProperty("IrcToGameType", "off");
-			IRC_TO_GAME_SPECIAL_CHAR = IRCSettings.getProperty("IrcToGameSpecialChar", "#");
-			IRC_TO_GAME_DISPLAY = IRCSettings.getProperty("IrcToGameDisplay", "trade");
-			IRC_NO_GM_MSG = IRCSettings.getProperty("IrcNoGmMsg", "There are not any GMs that are providing customer service currently");
-			IRC_NO_PLAYER_ONLINE = IRCSettings.getProperty("IrcNoPlayerOnlineMsg", "No Players currently online");
-			IRC_PLAYER_ONLINE = IRCSettings.getProperty("IrcPlayerOnlineMsg", "Players currently online:");
-			IRC_MSG_START = IRCSettings.getProperty("IrcMsgStart", "l24team Gameserver started");
-		}
-		catch (final Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + IRC_FILE + " File.");
-		}
-	}
-
-	// ============================================================
 
 	// ============================================================
 	public static boolean REBIRTH_ENABLE;
@@ -2195,31 +2126,31 @@ public final class Config
 	public static boolean NEW_PLAYER_EFFECT;
 
 	// ============================================================
-	public static void loadL24TeamConfig()
+	public static void loadL24ModsConfig()
 	{
-		final String L24Team = FService.L24Team_CONFIG_FILE;
+		final String L24Mods = FService.L24Mods_CONFIG_FILE;
 
 		try
 		{
-			final Properties l24teamSettings = new Properties();
-			final InputStream is = new FileInputStream(new File(L24Team));
-			l24teamSettings.load(is);
+			final Properties l24modsSettings = new Properties();
+			final InputStream is = new FileInputStream(new File(L24Mods));
+			l24modsSettings.load(is);
 			is.close();
 
-			GM_TRADE_RESTRICTED_ITEMS = Boolean.parseBoolean(l24teamSettings.getProperty("GMTradeRestrictedItems", "False"));
-			GM_RESTART_FIGHTING = Boolean.parseBoolean(l24teamSettings.getProperty("GMRestartFighting", "False"));
-			PM_MESSAGE_ON_START = Boolean.parseBoolean(l24teamSettings.getProperty("PMWelcomeShow", "False"));
-			SERVER_TIME_ON_START = Boolean.parseBoolean(l24teamSettings.getProperty("ShowServerTimeOnStart", "False"));
-			PM_SERVER_NAME = l24teamSettings.getProperty("PMServerName", "L2-4Team");
-			PM_TEXT1 = l24teamSettings.getProperty("PMText1", "Have Fun and Nice Stay on");
-			PM_TEXT2 = l24teamSettings.getProperty("PMText2", "Vote for us every 24h");
-			NEW_PLAYER_EFFECT = Boolean.parseBoolean(l24teamSettings.getProperty("NewPlayerEffect", "True"));
+			GM_TRADE_RESTRICTED_ITEMS = Boolean.parseBoolean(l24modsSettings.getProperty("GMTradeRestrictedItems", "False"));
+			GM_RESTART_FIGHTING = Boolean.parseBoolean(l24modsSettings.getProperty("GMRestartFighting", "False"));
+			PM_MESSAGE_ON_START = Boolean.parseBoolean(l24modsSettings.getProperty("PMWelcomeShow", "False"));
+			SERVER_TIME_ON_START = Boolean.parseBoolean(l24modsSettings.getProperty("ShowServerTimeOnStart", "False"));
+			PM_SERVER_NAME = l24modsSettings.getProperty("PMServerName", "L2-4Team");
+			PM_TEXT1 = l24modsSettings.getProperty("PMText1", "Have Fun and Nice Stay on");
+			PM_TEXT2 = l24modsSettings.getProperty("PMText2", "Vote for us every 24h");
+			NEW_PLAYER_EFFECT = Boolean.parseBoolean(l24modsSettings.getProperty("NewPlayerEffect", "True"));
 
 		}
 		catch (final Exception e)
 		{
 			e.printStackTrace();
-			throw new Error("Failed to Load " + L24Team + " File.");
+			throw new Error("Failed to Load " + L24Mods + " File.");
 		}
 	}
 
@@ -2455,12 +2386,12 @@ public final class Config
 	// ============================================================
 	public static void loadl24teamConfig()
 	{
-		final String l24team = FService.l24team_CONFIG_FILE;
+		final String L24Team = FService.L24Team_CONFIG_FILE;
 
 		try
 		{
 			final Properties l24teamSettings = new Properties();
-			final InputStream is = new FileInputStream(new File(l24team));
+			final InputStream is = new FileInputStream(new File(L24Team));
 			l24teamSettings.load(is);
 			is.close();
 
@@ -2574,7 +2505,7 @@ public final class Config
 		catch (final Exception e)
 		{
 			e.printStackTrace();
-			throw new Error("Failed to Load " + l24team + " File.");
+			throw new Error("Failed to Load " + L24Team + " File.");
 		}
 	}
 
@@ -4590,10 +4521,9 @@ public final class Config
 			// 4Team config
 			loadCTFConfig();
 			loadDMConfig();
-			loadL24TeamConfig();
+			loadL24ModsConfig();
 			loadTVTConfig();
 			loadTWConfig();
-			loadIRCConfig();
 
 			// Protect
 			loadFloodConfig();

@@ -32,12 +32,12 @@ public class L24Team
 	public static void info()
 
 	{
-		LOGGER.info("                                                     ");
-		LOGGER.info("          ###  #####  #####     ##     ##   ##       ");
-		LOGGER.info("         ####  #####  ##       ####    ### ###       ");
-		LOGGER.info("        ## ##	 ###   #####   ##  ##   #######       ");
-		LOGGER.info("       ######   ###   ##     ########  ## # ##       ");
-		LOGGER.info("          ###	 ###   #####  ###  ###  ##   ##       ");
-		LOGGER.info("             	   		        Frozen Forever!       ");
+		LOGGER.info("                                                       ");
+		LOGGER.info("          ###  #####  #####     ##     ##   ##         ");
+		LOGGER.info("         ####  #####  ##       ####    ### ###         ");
+		LOGGER.info("        ## ##	 ###   #####   ##  ##   #######         ");
+		LOGGER.info("       ######   ###   ##     ########  ## # ##         ");
+		LOGGER.info("          ###	 ###   #####  ###  ###  ##   ##         ");
+		LOGGER.info("             	   		        Frozen Forever!         ");
 	}
 }

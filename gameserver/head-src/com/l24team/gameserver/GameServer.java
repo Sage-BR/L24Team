@@ -107,7 +107,6 @@ import com.l24team.gameserver.managers.FortManager;
 import com.l24team.gameserver.managers.FortSiegeManager;
 import com.l24team.gameserver.managers.FourSepulchersManager;
 import com.l24team.gameserver.managers.GrandBossManager;
-import com.l24team.gameserver.managers.IrcManager;
 import com.l24team.gameserver.managers.ItemsOnGroundManager;
 import com.l24team.gameserver.managers.MercTicketManager;
 import com.l24team.gameserver.managers.PetitionManager;
@@ -539,11 +538,6 @@ public class GameServer
 		}
 
 		Util.printSection("Game Server");
-
-		if (Config.IRC_ENABLED)
-		{
-			IrcManager.getInstance().getConnection().sendChan(Config.IRC_MSG_START);
-		}
 
 		LOGGER.info("IdFactory: Free ObjectID's remaining: " + IdFactory.getInstance().size());
 		try
