@@ -83,7 +83,7 @@ public final class L2GamePacketHandler implements IPacketHandler<L2GameClient>, 
 
 		if (client.getActiveChar() != null)
 		{// already done EnterWorld
-			
+
 			final String character = client.getActiveChar().getName();
 			String packet = "" + opcode;
 			if (opcode2 != -1)

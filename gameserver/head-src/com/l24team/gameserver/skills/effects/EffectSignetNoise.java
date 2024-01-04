@@ -52,7 +52,7 @@ public final class EffectSignetNoise extends L2Effect
 		{
 			return true; // do nothing first time
 		}
-		
+
 		for (final L2Character target : _actor.getKnownList().getKnownCharactersInRadius(getSkill().getSkillRadius()))
 		{
 			if (target == null)

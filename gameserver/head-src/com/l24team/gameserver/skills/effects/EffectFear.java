@@ -84,8 +84,6 @@ final class EffectFear extends L2Effect
 			return false;
 		}
 
-		
-
 		// Fear skills cannot be used on Headquarters Flag.
 		if ((getEffected() instanceof L2FolkInstance) || (getEffected() instanceof L2SiegeGuardInstance) || (getEffected() instanceof L2SiegeFlagInstance) || (getEffected() instanceof L2SiegeSummonInstance))
 		{

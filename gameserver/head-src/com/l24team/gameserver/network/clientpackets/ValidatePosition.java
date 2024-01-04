@@ -118,7 +118,7 @@ public final class ValidatePosition extends L2GameClientPacket
 		// COORD Client<-->Server synchronization
 		switch (Config.COORD_SYNCHRONIZE)
 		{
-			
+
 			case 1:
 			{ // full synchronization Client --> Server
 				// only * using this option it is difficult
@@ -149,7 +149,7 @@ public final class ValidatePosition extends L2GameClientPacket
 				break;
 			case 2:
 			{ // full synchronization Server --> Client (bounces for validation)
-				
+
 				if ((Config.GEODATA > 0) && ((diffSq > 250000) || (Math.abs(dz) > 200)))
 				{
 					if (Math.abs(dz) > 200)
@@ -190,7 +190,7 @@ public final class ValidatePosition extends L2GameClientPacket
 				break;
 			case -1:
 			{ // just (client-->server) Z coordination
-				
+
 				if (Math.abs(dz) > 200)
 				{
 
@@ -214,7 +214,7 @@ public final class ValidatePosition extends L2GameClientPacket
 				finalZ = realZ;
 			}
 				break;
-			
+
 		}
 
 		// check water

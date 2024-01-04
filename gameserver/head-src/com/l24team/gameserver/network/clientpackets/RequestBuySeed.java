@@ -123,12 +123,7 @@ public class RequestBuySeed extends L2GameClientPacket
 			price = seed.getPrice();
 			residual = seed.getCanProduce();
 
-			if (price <= 0)
-			{
-				return;
-			}
-
-			if (residual < count)
+			if ((price <= 0) || (residual < count))
 			{
 				return;
 			}

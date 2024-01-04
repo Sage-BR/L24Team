@@ -82,7 +82,7 @@ public class AdminAio implements IAdminCommandHandler
 
 				if (st.hasMoreTokens())
 				{ // char_name not specified
-					
+
 					final String char_name = st.nextToken();
 
 					final L2PcInstance player = L2World.getInstance().getPlayer(char_name);
@@ -157,7 +157,7 @@ public class AdminAio implements IAdminCommandHandler
 
 				if (st.hasMoreTokens())
 				{ // char_name
-					
+
 					final String char_name = st.nextToken();
 
 					final L2PcInstance player = L2World.getInstance().getPlayer(char_name);

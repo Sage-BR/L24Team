@@ -111,7 +111,7 @@ public class L2SiegeNpcInstance extends L2FolkInstance
 		{
 			return false; // Busy because of siege
 		}
-		
+
 		return true;
 	}
 }

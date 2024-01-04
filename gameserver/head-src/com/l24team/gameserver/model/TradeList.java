@@ -552,7 +552,7 @@ public class TradeList
 		{
 			return true; // Already confirmed
 		}
-		
+
 		// If Partner has already confirmed this trade, proceed exchange
 		if (_partner != null)
 		{

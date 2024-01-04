@@ -71,7 +71,7 @@ public final class RequestAnswerJoinPledge extends L2GameClientPacket
 			{
 				return; // hax
 			}
-			
+
 			final RequestJoinPledge requestPacket = (RequestJoinPledge) requestor.getRequest().getRequestPacket();
 			final L2Clan clan = requestor.getClan();
 			// we must double check this cause during response time conditions can be changed, i.e. another player could join clan

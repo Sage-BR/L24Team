@@ -31,7 +31,7 @@ public class ExFishingStart extends L2GameServerPacket
 	private static final String _S__FE_13_EXFISHINGSTART = "[S] FE:13 ExFishingStart";
 	private final L2Character _activeChar;
 	private final int _x, _y, _z, _fishType;
-	
+
 	public ExFishingStart(final L2Character character, final int fishType, final int x, final int y, final int z, final boolean isNightLure)
 	{
 		_activeChar = character;

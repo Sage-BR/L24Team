@@ -113,7 +113,7 @@ public final class EffectSignetMDam extends L2Effect
 		{
 			return true; // do nothing first 2 times
 		}
-		
+
 		final int mpConsume = getSkill().getMpConsume();
 		final L2PcInstance caster = (L2PcInstance) getEffector();
 

@@ -391,12 +391,7 @@ public final class L2FestivalGuideInstance extends L2FolkInstance
 					html = null;
 					break;
 				case 8: // Increase the Festival Challenge
-					if (playerParty == null)
-					{
-						return;
-					}
-
-					if (!SevenSignsFestival.getInstance().isFestivalInProgress())
+					if ((playerParty == null) || !SevenSignsFestival.getInstance().isFestivalInProgress())
 					{
 						return;
 					}

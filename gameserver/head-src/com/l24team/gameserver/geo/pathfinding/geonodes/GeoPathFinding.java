@@ -90,14 +90,14 @@ public final class GeoPathFinding extends PathFinding
 		{
 			return null; // cannot reach closest...
 		}
-		
+
 		// TODO: Find closest path node around target, now only checks if final location can be reached
 		temp = GeoData.getInstance().moveCheck(tx, ty, tz, end.getX(), end.getY(), end.getZ());
 		if ((temp.getX() != end.getX()) || (temp.getY() != end.getY()))
 		{
 			return null; // cannot reach closest...
 		}
-		
+
 		// return searchAStar(start, end);
 		return searchByClosest2(start, end);
 	}

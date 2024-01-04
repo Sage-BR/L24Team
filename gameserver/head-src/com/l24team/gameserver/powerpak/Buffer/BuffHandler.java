@@ -219,13 +219,8 @@ public class BuffHandler implements IVoicedCommandHandler, ICustomByPassHandler,
 			}
 
 			// Possible fix to Buffer - 1
-			if (buffer == null)
-			{
-				return;
-			}
-
 			// Possible fix to Buffer - 2
-			if (!player.isInsideRadius(buffer, L2NpcInstance.INTERACTION_DISTANCE, false, false))
+			if ((buffer == null) || !player.isInsideRadius(buffer, L2NpcInstance.INTERACTION_DISTANCE, false, false))
 			{
 				return;
 			}

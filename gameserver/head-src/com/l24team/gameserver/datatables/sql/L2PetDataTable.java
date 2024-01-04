@@ -376,7 +376,7 @@ public class L2PetDataTable
 				{
 					4425
 				};
-			
+
 			case 12311:// hatchling of wind
 			case 12312:// hatchling of star
 			case 12313:// hatchling of twilight
@@ -386,7 +386,7 @@ public class L2PetDataTable
 					3501,
 					3502
 				};
-			
+
 			case 12526:// wind strider
 			case 12527:// Star strider
 			case 12528:// Twilight strider
@@ -396,13 +396,13 @@ public class L2PetDataTable
 					4423,
 					4424
 				};
-			
+
 			case 12621:// Wyvern
 				return new int[]
 				{
 					8663
 				};
-			
+
 			case 12780:// Baby Buffalo
 			case 12782:// Baby Cougar
 			case 12781:// Baby Kookaburra
@@ -412,7 +412,7 @@ public class L2PetDataTable
 					6649,
 					6650
 				};
-			
+
 			// unknown item id.. should never happen
 			default:
 				return new int[]

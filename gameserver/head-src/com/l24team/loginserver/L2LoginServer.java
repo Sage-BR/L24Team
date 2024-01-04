@@ -34,7 +34,6 @@ import org.apache.log4j.PropertyConfigurator;
 
 import com.l24team.Config;
 import com.l24team.FService;
-import com.l24team.L24Team;
 import com.l24team.ServerType;
 import com.l24team.gameserver.datatables.GameServerTable;
 import com.l24team.netcore.NetcoreConfig;
@@ -119,8 +118,7 @@ public class L2LoginServer
 		}
 
 		// Team info
-		Util.printSection("Team");
-		L24Team.info();
+		Util.printSection("4TeamBR");
 
 		// Load LoginServer Configs
 		Config.load();

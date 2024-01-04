@@ -82,7 +82,7 @@ public class RequestAquireSkillInfo extends L2GameClientPacket
 			{
 				return; // cheater
 			}
-			
+
 			final L2SkillLearn[] skills = SkillTreeTable.getInstance().getAvailableSkills(activeChar, activeChar.getSkillLearningClassId());
 
 			for (final L2SkillLearn s : skills)
@@ -98,7 +98,7 @@ public class RequestAquireSkillInfo extends L2GameClientPacket
 			{
 				return; // cheater
 			}
-			
+
 			final int requiredSp = SkillTreeTable.getInstance().getSkillCost(activeChar, skill);
 			final AquireSkillInfo asi = new AquireSkillInfo(skill.getId(), skill.getLevel(), requiredSp, 0);
 
@@ -140,7 +140,7 @@ public class RequestAquireSkillInfo extends L2GameClientPacket
 			{
 				return; // cheater
 			}
-			
+
 			final AquireSkillInfo asi = new AquireSkillInfo(skill.getId(), skill.getLevel(), requiredRep, 2);
 
 			if (Config.LIFE_CRYSTAL_NEEDED)

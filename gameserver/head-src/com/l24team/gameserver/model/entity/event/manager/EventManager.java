@@ -40,7 +40,7 @@ public class EventManager
 {
 	protected static final Logger LOGGER = Logger.getLogger(EventManager.class);
 
-	private final static String EVENT_MANAGER_CONFIGURATION_FILE = "./config/frozen/eventmanager.properties";
+	private final static String EVENT_MANAGER_CONFIGURATION_FILE = "./config/l24team/eventmanager.properties";
 
 	public static boolean TVT_EVENT_ENABLED;
 	public static ArrayList<String> TVT_TIMES_LIST;

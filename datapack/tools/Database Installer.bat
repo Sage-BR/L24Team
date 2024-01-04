@@ -13,13 +13,13 @@ set DateT=%date%
 REM Configurate database connection loginserver
 set lsuser=root
 set lspass=root
-set lsdb=loginserver_beta
+set lsdb=l2jdb
 set lshost=localhost
 
 REM Configurate database connection Gameserver
 set gsuser=root
 set gspass=root
-set gsdb=gameserver_beta
+set gsdb=l2jdb
 set gshost=localhost
 REM ############################################
 
@@ -27,7 +27,7 @@ REM ############################################
 cls
 echo. ---------------------------------------------------------------------
 echo.
-echo.   L2-4Team Team - Database Login Server
+echo.   L2-4Team- Database Login Server
 echo. _____________________________________________________________________
 echo.
 echo.   1 - Full install database loginserver`s.

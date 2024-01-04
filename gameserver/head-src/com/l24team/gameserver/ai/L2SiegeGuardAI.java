@@ -656,12 +656,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 		// Go through all L2Object that belong to its faction
 		for (final L2Character cha : actor.getKnownList().getKnownCharactersInRadius(1000))
 		{
-			if (cha == null)
-			{
-				continue;
-			}
-
-			if (!(cha instanceof L2NpcInstance))
+			if ((cha == null) || !(cha instanceof L2NpcInstance))
 			{
 				continue;
 			}

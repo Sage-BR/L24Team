@@ -391,7 +391,7 @@ public final class RequestEnchantItem extends L2GameClientPacket
 			}
 			else
 			{ // normal scrolls
-				
+
 				for (final int normalweaponscroll : NORMAL_WEAPON_SCROLLS)
 				{
 					if (scroll.getItemId() == normalweaponscroll)
@@ -462,7 +462,7 @@ public final class RequestEnchantItem extends L2GameClientPacket
 			}
 			else
 			{ // normal scrolls
-				
+
 				for (final int normalarmorscroll : NORMAL_ARMOR_SCROLLS)
 				{
 					if (scroll.getItemId() == normalarmorscroll)

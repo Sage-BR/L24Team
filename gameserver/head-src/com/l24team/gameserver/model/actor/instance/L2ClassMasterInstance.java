@@ -306,7 +306,7 @@ public final class L2ClassMasterInstance extends L2FolkInstance
 			{
 				return; // no more job changes
 			}
-			
+
 			ClassLevel lvlnext = PlayerClass.values()[val].getLevel();
 			switch (lvlnext)
 			{
@@ -329,11 +329,7 @@ public final class L2ClassMasterInstance extends L2FolkInstance
 			{
 				return;
 			}
-			if ((level < 40) && (newJobLevel > 2))
-			{
-				return;
-			}
-			if ((level < 76) && (newJobLevel > 3))
+			if (((level < 40) && (newJobLevel > 2)) || ((level < 76) && (newJobLevel > 3)))
 			{
 				return;
 				// -- prevention ends

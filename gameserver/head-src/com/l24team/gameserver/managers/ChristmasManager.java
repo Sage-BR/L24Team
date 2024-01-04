@@ -129,7 +129,7 @@ public class ChristmasManager
 		"May you have the best of Christmas this year and all your dreams come true.",
 		"May the miracle of Christmas fill your heart with warmth and love. Merry Christmas!"
 	},
-		
+
 		sender =
 		{
 			"Santa Claus",
@@ -173,7 +173,7 @@ public class ChristmasManager
 			"Reindeer Rudolf",
 			"Christmas Elf"
 		};
-		
+
 	// Presents List:
 	protected int[] presents =
 	{

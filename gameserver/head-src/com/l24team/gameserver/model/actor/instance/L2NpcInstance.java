@@ -189,7 +189,7 @@ public class L2NpcInstance extends L2Character
 				{
 					return; // Shouldn't happen, but who knows... just to make sure every active npc has only one timer.
 				}
-				
+
 				if (isMob())
 				{
 					// Cancel further animation timers until intention is changed to ACTIVE again.

@@ -954,7 +954,7 @@ public final class L2GameClient extends MMOClient<MMOConnection<L2GameClient>> i
 					if (Config.ENABLE_OLYMPIAD_DISCONNECTION_DEBUG)
 					{
 						if (player.isInOlympiadMode()
-							
+
 							|| player.inObserverMode())
 						{
 							if (player.isInOlympiadMode())

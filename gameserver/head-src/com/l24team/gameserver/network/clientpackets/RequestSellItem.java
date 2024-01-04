@@ -106,7 +106,7 @@ public final class RequestSellItem extends L2GameClientPacket
 		{
 			return; // Distance is too far
 		}
-		
+
 		String htmlFolder = "";
 		L2NpcInstance merchant = null;
 		if (target instanceof L2MerchantInstance)

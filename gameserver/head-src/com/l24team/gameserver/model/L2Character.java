@@ -1077,16 +1077,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder
 			return;
 		}
 
-		if ((this instanceof L2PcInstance) && target.isDead() && !target.isFakeDeath())
-		{
-			// If L2PcInstance is dead or the target is dead, the action is stoped
-			getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE);
-
-			sendPacket(ActionFailed.STATIC_PACKET);
-			return;
-		}
-
-		if (!getKnownList().knowsObject(target))
+		if (((this instanceof L2PcInstance) && target.isDead() && !target.isFakeDeath()) || !getKnownList().knowsObject(target))
 		{
 			// If L2PcInstance is dead or the target is dead, the action is stoped
 			getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE);
@@ -2178,7 +2169,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder
 			// Disable all skills during the casting
 			if (!skill.isPotion())
 			{ // for particular potion is the timestamp to disable particular skill
-				
+
 				disableAllSkills();
 
 				if (_skillCast != null) // delete previous skill cast
@@ -4726,7 +4717,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder
 		{
 			return; // nothing to do (should not happen)
 		}
-		
+
 		// Add special effects
 		// Note: Now handled by EtcStatusUpdate packet
 		// NOTE: CHECK IF THEY WERE EVEN VISIBLE TO OTHERS...
@@ -7284,7 +7275,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder
 				// check on BossZone raid lvl
 				if (!(target instanceof L2PlayableInstance) && !(target instanceof L2SummonInstance))
 				{ // this must work just on mobs/raids
-					
+
 					if ((target.isRaid() && (getLevel() > (target.getLevel() + 8))) || (!(target instanceof L2PcInstance) && ((target.getTarget() != null) && (target.getTarget() instanceof L2RaidBossInstance) && (getLevel() > (((L2RaidBossInstance) target.getTarget()).getLevel() + 8)))) || (!(target instanceof L2PcInstance) && ((target.getTarget() != null) && (target.getTarget() instanceof L2GrandBossInstance) && (getLevel() > (((L2GrandBossInstance) target.getTarget()).getLevel() + 8)))))
 
 					{
@@ -7875,17 +7866,13 @@ public abstract class L2Character extends L2Object implements ISkillsHolder
 			}
 		}
 
-		if ((attacker instanceof L2Character) && ((L2Character) attacker).isInsideZone(ZONE_PEACE)
+		if (((attacker instanceof L2Character) && ((L2Character) attacker).isInsideZone(ZONE_PEACE)
 		// the townzone has to be already peace zone
 		// || TownManager.getInstance().getTown(attacker.getX(), attacker.getY(), attacker.getZ())!= null
-		)
-		{
-			return true;
-		}
-
-		if ((target instanceof L2Character) && ((L2Character) target).isInsideZone(ZONE_PEACE)
+) || ((target instanceof L2Character) && ((L2Character) target).isInsideZone(ZONE_PEACE)
 		// the townzone has to be already peace zone
 		// || TownManager.getInstance().getTown(target.getX(), target.getY(), target.getZ())!= null
+)
 		)
 		{
 			return true;
@@ -9346,7 +9333,7 @@ public abstract class L2Character extends L2Object implements ISkillsHolder
 						// check on BossZone raid lvl
 						if (!(player.getTarget() instanceof L2PlayableInstance) && !(player.getTarget() instanceof L2SummonInstance))
 						{ // this must work just on mobs/raids
-							
+
 							if ((player.isRaid() && (getLevel() > (player.getLevel() + 8))) || (!(player instanceof L2PcInstance) && ((player.getTarget() != null) && (player.getTarget() instanceof L2RaidBossInstance) && (getLevel() > (((L2RaidBossInstance) player.getTarget()).getLevel() + 8)))) || (!(player instanceof L2PcInstance) && ((player.getTarget() != null) && (player.getTarget() instanceof L2GrandBossInstance) && (getLevel() > (((L2GrandBossInstance) player.getTarget()).getLevel() + 8)))))
 							{
 								to_be_cursed = true;

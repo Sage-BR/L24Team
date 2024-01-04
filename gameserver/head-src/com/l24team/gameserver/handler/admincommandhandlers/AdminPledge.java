@@ -136,7 +136,7 @@ public class AdminPledge implements IAdminCommandHandler
 				{
 					switch (action)
 					{
-						
+
 						case create:
 						{
 

@@ -47,7 +47,7 @@ public enum SystemChatChannelId
 	CHAT_UNKNOWN("UNKNOWN"), // id = 19
 	CHAT_BATTLEFIELD("BATTLEFIELD"), // ^ id = 20
 	CHAT_NONE("NONE");
-	
+
 	private String _channelName;
 
 	private SystemChatChannelId(final String channelName)

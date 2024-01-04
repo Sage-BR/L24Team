@@ -180,14 +180,9 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 			}
 
 			// if in offline mode
-			if (((L2PcInstance) target).isInOfflineMode())
-			{
-				return false;
-			}
-
 			// Check if player is an ally //TODO! [Nemesiss] it should be rather boolean or smth like that
 			// Comparing String isnt good idea!
-			if ((me.getFactionId() != null) && me.getFactionId().equals("varka") && ((L2PcInstance) target).isAlliedWithVarka())
+			if (((L2PcInstance) target).isInOfflineMode() || ((me.getFactionId() != null) && me.getFactionId().equals("varka") && ((L2PcInstance) target).isAlliedWithVarka()))
 			{
 				return false;
 			}

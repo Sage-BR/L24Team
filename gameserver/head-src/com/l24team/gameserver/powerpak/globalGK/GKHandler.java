@@ -173,13 +173,8 @@ public class GKHandler implements IVoicedCommandHandler, ICustomByPassHandler, I
 			}
 
 			// Possible fix to Buffer - 1
-			if (gknpc == null)
-			{
-				return;
-			}
-
 			// Possible fix to Buffer - 2
-			if (!player.isInsideRadius(gknpc, L2NpcInstance.INTERACTION_DISTANCE, false, false))
+			if ((gknpc == null) || !player.isInsideRadius(gknpc, L2NpcInstance.INTERACTION_DISTANCE, false, false))
 			{
 				return;
 			}

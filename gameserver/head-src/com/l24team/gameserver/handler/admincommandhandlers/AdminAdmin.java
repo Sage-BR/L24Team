@@ -107,17 +107,17 @@ public class AdminAdmin implements IAdminCommandHandler
 			case admin_admin5:
 				showMainPage(activeChar, command);
 				return true;
-			
+
 			case admin_gmliston:
 				GmListTable.getInstance().showGm(activeChar);
 				activeChar.sendMessage("Registerd into gm list");
 				return true;
-			
+
 			case admin_gmlistoff:
 				GmListTable.getInstance().hideGm(activeChar);
 				activeChar.sendMessage("Removed from gm list");
 				return true;
-			
+
 			case admin_silence:
 				if (activeChar.getMessageRefusal()) // already in message refusal mode
 				{
@@ -136,7 +136,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				activeChar.sendMessage("Olympiad stuff saved!");
 
 				return true;
-			
+
 			case admin_manualhero:
 				try
 				{
@@ -149,7 +149,7 @@ public class AdminAdmin implements IAdminCommandHandler
 
 				activeChar.sendMessage("Heroes formed!");
 				return true;
-			
+
 			case admin_diet:
 			{
 
@@ -272,7 +272,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				st = null;
 
 				return true;
-			
+
 			default:
 			{
 				return false;

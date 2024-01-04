@@ -314,17 +314,17 @@ public final class RequestRefine extends L2GameClientPacket
 		{
 			return 0; // normal grade
 		}
-		
+
 		if (itemId < 20)
 		{
 			return 1; // mid grade
 		}
-		
+
 		if (itemId < 30)
 		{
 			return 2; // high grade
 		}
-		
+
 		return 3; // top grade
 	}
 

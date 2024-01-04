@@ -446,7 +446,7 @@ public class Antharas extends Quest implements Runnable
 					{
 						npcId = 29067; // normal
 					}
-					
+
 					// Do spawn.
 					antharasSpawn = _monsterSpawn.get(npcId);
 					_antharas = (L2GrandBossInstance) antharasSpawn.doSpawn();

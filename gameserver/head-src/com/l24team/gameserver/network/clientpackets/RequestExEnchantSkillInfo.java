@@ -61,12 +61,7 @@ public final class RequestExEnchantSkillInfo extends L2GameClientPacket
 		}
 
 		final L2FolkInstance trainer = activeChar.getLastFolkNPC();
-		if (trainer == null)
-		{
-			return;
-		}
-
-		if (!activeChar.isInsideRadius(trainer, L2NpcInstance.INTERACTION_DISTANCE, false, false) && !activeChar.isGM())
+		if ((trainer == null) || (!activeChar.isInsideRadius(trainer, L2NpcInstance.INTERACTION_DISTANCE, false, false) && !activeChar.isGM()))
 		{
 			return;
 		}
@@ -83,7 +78,7 @@ public final class RequestExEnchantSkillInfo extends L2GameClientPacket
 		{
 			return; // cheater
 		}
-		
+
 		final L2EnchantSkillLearn[] skills = SkillTreeTable.getInstance().getAvailableEnchantSkills(activeChar);
 
 		for (final L2EnchantSkillLearn s : skills)
@@ -99,7 +94,7 @@ public final class RequestExEnchantSkillInfo extends L2GameClientPacket
 		{
 			return; // cheater
 		}
-		
+
 		final int requiredSp = SkillTreeTable.getInstance().getSkillSpCost(activeChar, skill);
 		final int requiredExp = SkillTreeTable.getInstance().getSkillExpCost(activeChar, skill);
 		final byte rate = SkillTreeTable.getInstance().getSkillRate(activeChar, skill);

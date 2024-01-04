@@ -68,12 +68,7 @@ public class ZoneCylinder extends L2ZoneForm
 		// Collision on any side of the rectangle?
 		if ((_x > ax1) && (_x < ax2))
 		{
-			if (Math.abs(_y - ay2) < _rad)
-			{
-				return true;
-			}
-
-			if (Math.abs(_y - ay1) < _rad)
+			if ((Math.abs(_y - ay2) < _rad) || (Math.abs(_y - ay1) < _rad))
 			{
 				return true;
 			}
@@ -81,12 +76,7 @@ public class ZoneCylinder extends L2ZoneForm
 
 		if ((_y > ay1) && (_y < ay2))
 		{
-			if (Math.abs(_x - ax2) < _rad)
-			{
-				return true;
-			}
-
-			if (Math.abs(_x - ax1) < _rad)
+			if ((Math.abs(_x - ax2) < _rad) || (Math.abs(_x - ax1) < _rad))
 			{
 				return true;
 			}
@@ -106,7 +96,7 @@ public class ZoneCylinder extends L2ZoneForm
 		{
 			return 0; // If you are inside the zone distance to zone is 0.
 		}
-		
+
 		return Math.sqrt((Math.pow(_x - x, 2) + Math.pow(_y - y, 2))) - _rad;
 	}
 

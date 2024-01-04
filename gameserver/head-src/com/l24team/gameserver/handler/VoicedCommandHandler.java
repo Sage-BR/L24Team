@@ -35,7 +35,6 @@ import com.l24team.gameserver.handler.voicedcommandhandlers.OfflineShop;
 import com.l24team.gameserver.handler.voicedcommandhandlers.Online;
 import com.l24team.gameserver.handler.voicedcommandhandlers.StatsCmd;
 import com.l24team.gameserver.handler.voicedcommandhandlers.TvTCmd;
-import com.l24team.gameserver.handler.voicedcommandhandlers.VersionCmd;
 import com.l24team.gameserver.handler.voicedcommandhandlers.Voting;
 import com.l24team.gameserver.handler.voicedcommandhandlers.Wedding;
 
@@ -95,11 +94,6 @@ public class VoicedCommandHandler
 		}
 
 		registerVoicedCommandHandler(new StatsCmd());
-
-		if (Config.ALLOW_VERSION_COMMAND)
-		{
-			registerVoicedCommandHandler(new VersionCmd());
-		}
 
 		if (Config.ALLOW_AWAY_STATUS)
 		{

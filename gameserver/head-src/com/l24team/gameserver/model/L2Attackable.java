@@ -1289,7 +1289,7 @@ public class L2Attackable extends L2NpcInstance
 		// Get default drop chance
 		if ((Config.HIGH_RATE_SERVER_DROPS && !drop.isQuestDrop() && (drop.getItemId() != 57)))
 		{ // it's not adena-->check if drop has an epic jewel
-			
+
 			// ant queen,orfen,core,frintezza,baium,antharas,valakas,zaken,stones
 			if ((drop.getItemId() == 6660) || (drop.getItemId() == 6661) || (drop.getItemId() == 6662) || (drop.getItemId() == 8191) || (drop.getItemId() == 6658) || (drop.getItemId() == 6656) || (drop.getItemId() == 6657) || (drop.getItemId() == 6659) || ((drop.getItemId() >= 6360) && (drop.getItemId() <= 6362)) || ((drop.getItemId() >= 8723) && (drop.getItemId() <= 8762)))
 			{
@@ -1571,7 +1571,7 @@ public class L2Attackable extends L2NpcInstance
 
 		if ((Config.HIGH_RATE_SERVER_DROPS && (categoryDrops.getCategoryType() != 0)))
 		{ // it's not adena-->check if drop is quest or is an epic jewel
-			
+
 			boolean to_drop = false;
 
 			for (final L2DropData dd : categoryDrops.getAllDrops())
@@ -2038,7 +2038,7 @@ public class L2Attackable extends L2NpcInstance
 							{
 								player.doAutoLoot(this, item); // Give this or these Item(s) to the L2PcInstance that has killed the L2Attackable
 							}
-							
+
 						}
 
 					}
@@ -2783,7 +2783,6 @@ public class L2Attackable extends L2NpcInstance
 	public void addAbsorber(final L2PcInstance attacker, final int crystalId)
 	{
 		// This just works for targets like L2MonsterInstance
-		
 
 		// The attacker must not be null
 		// This L2Attackable must be of one type in the _absorbingMOBS_levelXX tables.

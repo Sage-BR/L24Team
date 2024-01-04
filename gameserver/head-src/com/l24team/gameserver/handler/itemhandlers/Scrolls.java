@@ -126,7 +126,7 @@ public class Scrolls implements IItemHandler
 			{
 				return; // Chaotic can not use it
 			}
-			
+
 			if (((itemId == 8594) && (activeChar.getExpertiseIndex() == 0)) || // Scroll: Recovery (No Grade)
 				((itemId == 8595) && (activeChar.getExpertiseIndex() == 1)) || // Scroll: Recovery (D Grade)
 				((itemId == 8596) && (activeChar.getExpertiseIndex() == 2)) || // Scroll: Recovery (C Grade)

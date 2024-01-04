@@ -42,7 +42,7 @@ public class BaseExtender
 		DIE("die"), // L2Character
 		REVIVE("revive"), // null
 		SETINTENTION("setintention"); // CtrlIntention
-		
+
 		public final String name;
 
 		EventType(final String name)

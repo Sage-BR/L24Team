@@ -207,7 +207,7 @@ public class CharSelectInfo extends L2GameServerPacket
 			{
 				deletedays = -1; // like L2OFF player looks dead if he is banned.
 			}
-			
+
 			writeD(deletedays); // days left before
 			// delete .. if != 0
 			// then char is inactive

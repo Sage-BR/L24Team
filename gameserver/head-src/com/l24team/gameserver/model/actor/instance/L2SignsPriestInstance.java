@@ -629,7 +629,7 @@ public class L2SignsPriestInstance extends L2FolkInstance
 
 					showChatWindow(player, val, null, false);
 					break;
-				
+
 			}
 			sm = null;
 			iu = null;

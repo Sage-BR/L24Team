@@ -293,7 +293,7 @@ public final class CharacterCreate extends L2GameClientPacket
 			{
 				newChar.registerShortCut(new L2ShortCut(11, 0, 1, item.getObjectId(), -1, 1)); // Tutorial Book shortcut
 			}
-			
+
 			if (item.isEquipable())
 			{
 				if ((newChar.getActiveWeaponItem() == null) || !(item.getItem().getType2() != L2Item.TYPE2_WEAPON))

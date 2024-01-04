@@ -3418,7 +3418,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 					switch (weap_item.getItemType())
 					{
-						
+
 						case BIGBLUNT:
 						case BIGSWORD:
 						{
@@ -3485,7 +3485,7 @@ public final class L2PcInstance extends L2PlayableInstance
 							}
 						}
 							break;
-						
+
 					}
 				}
 			}
@@ -5580,7 +5580,7 @@ public final class L2PcInstance extends L2PlayableInstance
 
 			if (Config.AUTODESTROY_ITEM_AFTER > 0)
 			{ // autodestroy enabled
-				
+
 				if ((item.isEquipable() && Config.DESTROY_EQUIPABLE_PLAYER_ITEM) || !item.isEquipable())
 				{
 					ItemsAutoDestroy.getInstance().addItem(item);
@@ -7138,7 +7138,7 @@ public final class L2PcInstance extends L2PlayableInstance
 			{
 				return; // no target change
 			}
-			
+
 			// Remove the L2PcInstance from the _statusListener of the old target if it was a L2Character
 			if (oldTarget instanceof L2Character)
 			{
@@ -8071,7 +8071,7 @@ public final class L2PcInstance extends L2PlayableInstance
 		{
 			return; // Target player is null
 		}
-		
+
 		if (targetPlayer == this)
 		{
 			targetPlayer = null;
@@ -8085,13 +8085,8 @@ public final class L2PcInstance extends L2PlayableInstance
 		}
 
 		// If in duel and you kill (only can kill l2summon), do nothing
-		if (isInDuel() && targetPlayer.isInDuel())
-		{
-			return;
-		}
-
 		// If in Arena, do nothing
-		if (isInsideZone(ZONE_PVP) || targetPlayer.isInsideZone(ZONE_PVP))
+		if ((isInDuel() && targetPlayer.isInDuel()) || isInsideZone(ZONE_PVP) || targetPlayer.isInsideZone(ZONE_PVP))
 		{
 			return;
 		}
@@ -12296,14 +12291,8 @@ public final class L2PcInstance extends L2PlayableInstance
 				if (siege != null)
 				{
 					// Check if a siege is in progress and if attacker and the L2PcInstance aren't in the Defender clan
-					if (siege.checkIsDefender(((L2PcInstance) attacker).getClan()) && siege.checkIsDefender(getClan()))
-					{
-						siege = null;
-						return false;
-					}
-
 					// Check if a siege is in progress and if attacker and the L2PcInstance aren't in the Attacker clan
-					if (siege.checkIsAttacker(((L2PcInstance) attacker).getClan()) && siege.checkIsAttacker(getClan()))
+					if ((siege.checkIsDefender(((L2PcInstance) attacker).getClan()) && siege.checkIsDefender(getClan())) || (siege.checkIsAttacker(((L2PcInstance) attacker).getClan()) && siege.checkIsAttacker(getClan())))
 					{
 						siege = null;
 						return false;
@@ -12312,14 +12301,8 @@ public final class L2PcInstance extends L2PlayableInstance
 				if (fortsiege != null)
 				{
 					// Check if a siege is in progress and if attacker and the L2PcInstance aren't in the Defender clan
-					if (fortsiege.checkIsDefender(((L2PcInstance) attacker).getClan()) && fortsiege.checkIsDefender(getClan()))
-					{
-						fortsiege = null;
-						return false;
-					}
-
 					// Check if a siege is in progress and if attacker and the L2PcInstance aren't in the Attacker clan
-					if (fortsiege.checkIsAttacker(((L2PcInstance) attacker).getClan()) && fortsiege.checkIsAttacker(getClan()))
+					if ((fortsiege.checkIsDefender(((L2PcInstance) attacker).getClan()) && fortsiege.checkIsDefender(getClan())) || (fortsiege.checkIsAttacker(((L2PcInstance) attacker).getClan()) && fortsiege.checkIsAttacker(getClan())))
 					{
 						fortsiege = null;
 						return false;
@@ -12764,14 +12747,8 @@ public final class L2PcInstance extends L2PlayableInstance
 		// ************************************* Check Casting Conditions *******************************************
 
 		// Check if the caster own the weapon needed
-		if (!skill.getWeaponDependancy(this))
-		{
-			// Send a Server->Client packet ActionFailed to the L2PcInstance
-			sendPacket(ActionFailed.STATIC_PACKET);
-			return;
-		}
 		// Check if all casting conditions are completed
-		if (!skill.checkCondition(this, target, false))
+		if (!skill.getWeaponDependancy(this) || !skill.checkCondition(this, target, false))
 		{
 			// Send a Server->Client packet ActionFailed to the L2PcInstance
 			sendPacket(ActionFailed.STATIC_PACKET);

@@ -393,12 +393,7 @@ public final class L2Weapon extends L2Item
 				continue; // These skills should not work on RaidBoss
 			}
 
-			if (trigger.isToggle()/* && skill.getSkillType() == SkillType.BUFF */)
-			{
-				continue; // No buffing with toggle skills
-			}
-
-			if (!skill.checkCondition(caster, target, true)) // check skill condition and chance
+			if (trigger.isToggle()/* && skill.getSkillType() == SkillType.BUFF */ || !skill.checkCondition(caster, target, true)) // check skill condition and chance
 			{
 				continue; // Skill condition not met
 			}

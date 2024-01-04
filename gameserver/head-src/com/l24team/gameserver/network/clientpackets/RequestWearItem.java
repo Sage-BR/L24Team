@@ -154,7 +154,7 @@ public final class RequestWearItem extends L2GameClientPacket
 		{
 			return; // Distance is too far
 		}
-		
+
 		L2TradeList list = null;
 
 		// Get the current merchant targeted by the player

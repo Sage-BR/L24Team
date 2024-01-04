@@ -1812,7 +1812,7 @@ public class FourSepulchersManager extends GrandBossManager
 			{
 				return; // do not shout when < 5 minutes
 			}
-			
+
 			min = minuteSelect(min);
 			String msg = min + " minute(s) have passed."; // now this is a proper message^^
 			if (min == 90)

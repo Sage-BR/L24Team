@@ -189,7 +189,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_join_loc <event_loc_name>");
 				return false;
-			
+
 			case admin_ctf_edit:
 			{
 				showEditPage(activeChar);
@@ -269,7 +269,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_maxlvl <min_lvl_value>");
 				return false;
-			
+
 			case admin_ctf_tele_npc:
 			{
 				activeChar.teleToLocation(CTF.get_npcLocation(), false);
@@ -293,7 +293,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_tele_team <team_name>");
 				return false;
-			
+
 			case admin_ctf_tele_flag:
 
 				if (st.hasMoreTokens())
@@ -313,7 +313,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_tele_flag <team_name>");
 				return false;
-			
+
 			case admin_ctf_npc:
 
 				if (st.hasMoreTokens())
@@ -342,7 +342,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_npc <npc_id>");
 				return false;
-			
+
 			case admin_ctf_npc_pos:
 				CTF.setNpcPos(activeChar);
 				showMainPage(activeChar);
@@ -375,7 +375,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_reward <reward_id>");
 				return false;
-			
+
 			case admin_ctf_reward_amount:
 
 				if (st.hasMoreTokens())
@@ -404,7 +404,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_reward_amount <reward_amount>");
 				return false;
-			
+
 			case admin_ctf_team_add:
 
 				if (st.hasMoreTokens())
@@ -416,7 +416,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_team_add <team_name>");
 				return false;
-			
+
 			case admin_ctf_team_remove:
 
 				if (st.hasMoreTokens())
@@ -428,7 +428,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_team_remove <team_name>");
 				return false;
-			
+
 			case admin_ctf_team_pos:
 
 				if (st.hasMoreTokens())
@@ -440,7 +440,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_team_pos <team_name>");
 				return false;
-			
+
 			case admin_ctf_team_color:
 
 				if (st.countTokens() == 2)
@@ -470,7 +470,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_team_color <colorHex> <teamName>");
 				return false;
-			
+
 			case admin_ctf_team_flag:
 
 				if (st.hasMoreTokens())
@@ -482,7 +482,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_team_flag <teamName>");
 				return false;
-			
+
 			case admin_ctf_join:
 				if (CTF.startJoin())
 				{
@@ -503,12 +503,12 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Cannot startEvent, check LOGGER for info..");
 				return false;
-			
+
 			case admin_ctf_startevent:
 				CTF.eventOnceStart();
 				showMainPage(activeChar);
 				return true;
-			
+
 			case admin_ctf_abort:
 				activeChar.sendMessage("Aborting event");
 				CTF.abortEvent();
@@ -525,7 +525,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 			case admin_ctf_dump:
 				CTF.dumpData();
 				return true;
-			
+
 			case admin_ctf_save:
 				CTF.saveData();
 				showMainPage(activeChar);
@@ -637,7 +637,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_interval <minutes>");
 				return false;
-			
+
 			case admin_ctf_minplayers:
 
 				if (st.hasMoreTokens())
@@ -670,7 +670,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_minplayers <number>");
 				return false;
-			
+
 			case admin_ctf_maxplayers:
 
 				if (st.hasMoreTokens())
@@ -702,7 +702,7 @@ public class AdminCTFEngine implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("Usage: //ctf_maxplayers <number>");
 				return false;
-			
+
 			default:
 				return false;
 		}

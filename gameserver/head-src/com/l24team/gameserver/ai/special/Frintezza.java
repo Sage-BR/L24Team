@@ -2341,7 +2341,7 @@ public class Frintezza extends Quest implements Runnable
 
 							if (CC != null)
 							{ // teleport all parties into CC
-								
+
 								for (final L2Party party : CC.getPartys())
 								{
 									if (party == null)
@@ -2384,7 +2384,7 @@ public class Frintezza extends Quest implements Runnable
 							}
 							else
 							{ // teleport just actual party
-								
+
 								final L2Party party = player.getParty();
 
 								for (final L2PcInstance member : party.getPartyMembers())
@@ -2419,7 +2419,7 @@ public class Frintezza extends Quest implements Runnable
 						}
 						else
 						{ // teleport just player
-							
+
 							if (player.isInsideRadius(npc, 700, false, false))
 							{
 

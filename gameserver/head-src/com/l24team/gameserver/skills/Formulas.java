@@ -880,7 +880,7 @@ public final class Formulas
 		{
 			return HP_REGENERATE_PERIOD * 100; // 5 mins
 		}
-		
+
 		return HP_REGENERATE_PERIOD; // 3s
 	}
 
@@ -2116,7 +2116,7 @@ public final class Formulas
 		{
 			return false; // No attack break
 		}
-		
+
 		// Chance of break is higher with higher dmg
 		init += Math.sqrt(13 * dmg);
 
@@ -2564,12 +2564,12 @@ public final class Formulas
 		{
 			return false; // these skills should not work on RaidBoss
 		}
-		
+
 		if (target.isInvul() && ((type == SkillType.CONFUSION) || (type == SkillType.MUTE) || (type == SkillType.PARALYZE) || (type == SkillType.ROOT) || (type == SkillType.FEAR) || (type == SkillType.SLEEP) || (type == SkillType.STUN) || (type == SkillType.DEBUFF) || (type == SkillType.CANCEL) || (type == SkillType.NEGATE) || (type == SkillType.WARRIOR_BANE) || (type == SkillType.MAGE_BANE)))
 		{
 			return false; // these skills should not work on Invulable persons
 		}
-		
+
 		final int value = (int) skill.getPower();
 		final double statModifier = calcSkillStatModifier(skill, target);
 

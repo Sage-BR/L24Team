@@ -108,7 +108,7 @@ public final class L2TeleporterInstance extends L2FolkInstance
 				case 31100: //
 				case 31101: //
 				case 31102: //
-				
+
 				case 31114: //
 				case 31115: //
 				case 31116: // Enter Catacombs
@@ -125,7 +125,7 @@ public final class L2TeleporterInstance extends L2FolkInstance
 				case 31108: //
 				case 31109: //
 				case 31110: //
-				
+
 				case 31120: //
 				case 31121: //
 				case 31122: // Exit Catacombs

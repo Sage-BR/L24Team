@@ -52,13 +52,8 @@ public final class RequestConfirmSiegeWaitingList extends L2GameClientPacket
 		}
 
 		final Castle castle = CastleManager.getInstance().getCastleById(_castleId);
-		if (castle == null)
-		{
-			return;
-		}
-
 		// Check if leader of the clan who owns the castle?
-		if ((castle.getOwnerId() != activeChar.getClanId()) || !activeChar.isClanLeader())
+		if ((castle == null) || (castle.getOwnerId() != activeChar.getClanId()) || !activeChar.isClanLeader())
 		{
 			return;
 		}

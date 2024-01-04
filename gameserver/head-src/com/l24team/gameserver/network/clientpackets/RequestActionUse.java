@@ -395,14 +395,8 @@ public final class RequestActionUse extends L2GameClientPacket
 				break;
 			case 37:
 
-				if (activeChar.isAlikeDead())
-				{
-					getClient().sendPacket(ActionFailed.STATIC_PACKET);
-					return;
-				}
-
 				// Like L2OFF - You can't open Manufacture when you are in private store
-				if ((activeChar.getPrivateStoreType() == L2PcInstance.STORE_PRIVATE_BUY) || (activeChar.getPrivateStoreType() == L2PcInstance.STORE_PRIVATE_SELL))
+				if (activeChar.isAlikeDead() || (activeChar.getPrivateStoreType() == L2PcInstance.STORE_PRIVATE_BUY) || (activeChar.getPrivateStoreType() == L2PcInstance.STORE_PRIVATE_SELL))
 				{
 					getClient().sendPacket(ActionFailed.STATIC_PACKET);
 					return;

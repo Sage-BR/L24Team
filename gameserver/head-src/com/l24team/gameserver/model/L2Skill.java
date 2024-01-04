@@ -1478,7 +1478,7 @@ public abstract class L2Skill
 	{
 		if (activeChar instanceof L2PcInstance)
 		{ // to avoid attacks during oly start period
-			
+
 			if (isOffensive() && (((L2PcInstance) activeChar).isInOlympiadMode() && !((L2PcInstance) activeChar).isOlympiadStart()))
 			{
 				activeChar.sendPacket(new SystemMessage(SystemMessageId.TARGET_IS_INCORRECT));
@@ -1717,17 +1717,7 @@ public abstract class L2Skill
 						// check if both attacker and target are L2PcInstances and if they are in same party
 						if (obj instanceof L2PcInstance)
 						{
-							if (((L2PcInstance) obj).isDead())
-							{
-								continue;
-							}
-
-							if (((L2PcInstance) obj).getAppearance().getInvisible())
-							{
-								continue;
-							}
-
-							if (!src.checkPvpSkill(obj, this))
+							if (((L2PcInstance) obj).isDead() || ((L2PcInstance) obj).getAppearance().getInvisible() || !src.checkPvpSkill(obj, this))
 							{
 								continue;
 							}
@@ -1757,17 +1747,7 @@ public abstract class L2Skill
 						{
 							L2PcInstance trg = ((L2Summon) obj).getOwner();
 
-							if (trg == null)
-							{
-								continue;
-							}
-
-							if (trg == src)
-							{
-								continue;
-							}
-
-							if (!src.checkPvpSkill(trg, this))
+							if ((trg == null) || (trg == src) || !src.checkPvpSkill(trg, this))
 							{
 								continue;
 							}
@@ -1879,12 +1859,7 @@ public abstract class L2Skill
 					{
 						continue;
 					}
-					if (obj == cha)
-					{
-						continue;
-					}
-
-					if ((src != null) && !src.checkPvpSkill(obj, this))
+					if ((obj == cha) || ((src != null) && !src.checkPvpSkill(obj, this)))
 					{
 						continue;
 					}
@@ -2352,7 +2327,7 @@ public abstract class L2Skill
 							}
 							else
 							{ // check if clan is not the same --> continue
-								
+
 								if (player.getClanId() != playerTarget.getClanId())
 								{
 									continue;
@@ -2398,12 +2373,7 @@ public abstract class L2Skill
 
 							if (targetType == SkillTargetType.TARGET_CORPSE_ALLY)
 							{
-								if (!((L2PcInstance) newTarget).isDead())
-								{
-									continue;
-								}
-
-								if ((getSkillType() == SkillType.RESURRECT) && ((L2PcInstance) newTarget).isInsideZone(L2Character.ZONE_SIEGE))
+								if (!((L2PcInstance) newTarget).isDead() || ((getSkillType() == SkillType.RESURRECT) && ((L2PcInstance) newTarget).isInsideZone(L2Character.ZONE_SIEGE)))
 								{
 									continue;
 								}
@@ -2733,17 +2703,7 @@ public abstract class L2Skill
 							continue;
 						}
 
-						if (!Util.checkIfInRange(radius, target, obj, true))
-						{
-							continue;
-						}
-
-						if (!GeoData.getInstance().canSeeTarget(activeChar, obj))
-						{
-							continue;
-						}
-
-						if (isOffensive() && L2Character.isInsidePeaceZone(activeChar, obj))
+						if (!Util.checkIfInRange(radius, target, obj, true) || !GeoData.getInstance().canSeeTarget(activeChar, obj) || (isOffensive() && L2Character.isInsidePeaceZone(activeChar, obj)))
 						{
 							continue;
 						}

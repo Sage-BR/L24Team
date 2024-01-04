@@ -63,12 +63,7 @@ public final class RequestPetUseItem extends L2GameClientPacket
 
 		final L2ItemInstance item = pet.getInventory().getItemByObjectId(_objectId);
 
-		if (item == null)
-		{
-			return;
-		}
-
-		if (item.isWear())
+		if ((item == null) || item.isWear())
 		{
 			return;
 		}

@@ -440,7 +440,7 @@ public class L2FortSiegeGuardAI extends L2CharacterAI implements Runnable
 		{
 			return; // test for reducing CPU load
 		}
-		
+
 		final String faction_id = ((L2NpcInstance) _actor).getFactionId();
 
 		// SalfAnalisis ))
@@ -493,15 +493,7 @@ public class L2FortSiegeGuardAI extends L2CharacterAI implements Runnable
 					{
 						for (final L2Skill sk : /* _selfAnalysis.healSkills */healSkills)
 						{
-							if (_actor.getCurrentMp() < sk.getMpConsume())
-							{
-								continue;
-							}
-							if (_actor.isSkillDisabled(sk))
-							{
-								continue;
-							}
-							if (!Util.checkIfInRange(sk.getCastRange(), _actor, cha, true))
+							if ((_actor.getCurrentMp() < sk.getMpConsume()) || _actor.isSkillDisabled(sk) || !Util.checkIfInRange(sk.getCastRange(), _actor, cha, true))
 							{
 								continue;
 							}
@@ -555,15 +547,7 @@ public class L2FortSiegeGuardAI extends L2CharacterAI implements Runnable
 				{
 					for (final L2Skill sk : /* _selfAnalysis.healSkills */healSkills)
 					{
-						if (_actor.getCurrentMp() < sk.getMpConsume())
-						{
-							continue;
-						}
-						if (_actor.isSkillDisabled(sk))
-						{
-							continue;
-						}
-						if (!Util.checkIfInRange(sk.getCastRange(), _actor, npc, true))
+						if ((_actor.getCurrentMp() < sk.getMpConsume()) || _actor.isSkillDisabled(sk) || !Util.checkIfInRange(sk.getCastRange(), _actor, npc, true))
 						{
 							continue;
 						}

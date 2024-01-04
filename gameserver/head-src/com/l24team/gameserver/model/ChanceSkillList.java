@@ -114,12 +114,12 @@ public class ChanceSkillList extends FastMap<L2Skill, ChanceCondition>
 		{
 			return false; // No buffing with Common
 		}
-		
+
 		if (trigger.isOffensive() && !Formulas.calcMagicSuccess(caster, target, trigger))
 		{
 			return false; // Low grade skills won't trigger for high level targets
 		}
-		
+
 		return true;
 	}
 

@@ -53,7 +53,7 @@ public class Firework implements IItemHandler
 		{
 			return; // prevent Class cast exception
 		}
-		
+
 		L2PcInstance activeChar = (L2PcInstance) playable;
 		final int itemId = item.getItemId();
 
@@ -83,19 +83,7 @@ public class Firework implements IItemHandler
 			return;
 		}
 
-		if (activeChar.isStunned())
-		{
-			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
-			return;
-		}
-
-		if (activeChar.isDead())
-		{
-			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
-			return;
-		}
-
-		if (activeChar.isAlikeDead())
+		if (activeChar.isStunned() || activeChar.isDead() || activeChar.isAlikeDead())
 		{
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 			return;

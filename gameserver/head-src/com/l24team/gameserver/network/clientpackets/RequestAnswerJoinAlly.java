@@ -66,7 +66,7 @@ public final class RequestAnswerJoinAlly extends L2GameClientPacket
 			{
 				return; // hax
 			}
-			
+
 			final L2Clan clan = requestor.getClan();
 			// we must double check this cause of hack
 			if (clan.checkAllyJoinCondition(requestor, activeChar))

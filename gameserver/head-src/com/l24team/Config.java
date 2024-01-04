@@ -418,57 +418,6 @@ public final class Config
 	}
 
 	// ============================================================
-	public static String SERVER_REVISION;
-	public static String SERVER_BUILD_DATE;
-	public static String SERVER_VERSION;
-
-	// ============================================================
-	public static void loadServerVersionConfig()
-	{
-		final String SV = FService.SERVER_VERSION_FILE;
-
-		try
-		{
-			final Properties serverVersion = new Properties();
-			final InputStream is = new FileInputStream(new File(SV));
-			serverVersion.load(is);
-			is.close();
-			SERVER_REVISION = serverVersion.getProperty("revision", "Unsupported Custom Version.");
-			SERVER_BUILD_DATE = serverVersion.getProperty("builddate", "Undefined Date.");
-			SERVER_VERSION = serverVersion.getProperty("revision", "null");
-		}
-		catch (final Exception e)
-		{
-			LOGGER.error(e);
-		}
-	}
-
-	// ============================================================
-	public static String DATAPACK_VERSION;
-	public static String DATAPACK_BUILD_DATE;
-
-	// ============================================================
-	public static void loadDPVersionConfig()
-	{
-		final String DP = FService.DATAPACK_VERSION_FILE;
-
-		try
-		{
-			final Properties dpVersion = new Properties();
-			final InputStream is = new FileInputStream(new File(DP));
-			dpVersion.load(is);
-			is.close();
-			DATAPACK_VERSION = dpVersion.getProperty("version", "Unsupported Custom Version.");
-			SERVER_BUILD_DATE = dpVersion.getProperty("builddate", "Undefined Date.");
-
-		}
-		catch (final Exception e)
-		{
-			LOGGER.error(e);
-		}
-	}
-
-	// ============================================================
 	public static boolean IS_TELNET_ENABLED;
 
 	// ============================================================
@@ -1765,75 +1714,6 @@ public final class Config
 	}
 
 	// ============================================================
-	public static boolean IRC_ENABLED;
-	public static boolean IRC_LOG_CHAT;
-	public static boolean IRC_SSL;
-	public static String IRC_SERVER;
-	public static int IRC_PORT;
-	public static String IRC_PASS;
-	public static String IRC_NICK;
-	public static String IRC_USER;
-	public static String IRC_NAME;
-	public static boolean IRC_NICKSERV;
-	public static String IRC_NICKSERV_NAME;
-	public static String IRC_NICKSERV_COMMAND;
-	public static String IRC_LOGIN_COMMAND;
-	public static String IRC_CHANNEL;
-	public static String IRC_FROM_GAME_TYPE;
-	public static String IRC_TO_GAME_TYPE;
-	public static String IRC_TO_GAME_SPECIAL_CHAR;
-	public static String IRC_TO_GAME_DISPLAY;
-	public static boolean IRC_ANNOUNCE;
-	public static String IRC_NO_GM_MSG;
-	public static String IRC_NO_PLAYER_ONLINE;
-	public static String IRC_PLAYER_ONLINE;
-	public static String IRC_MSG_START;
-
-	// ============================================================
-
-	public static void loadIRCConfig()
-	{
-		final String IRC_FILE = FService.IRC_FILE;
-
-		try
-		{
-			final Properties IRCSettings = new Properties();
-			final InputStream is = new FileInputStream(new File(IRC_FILE));
-			IRCSettings.load(is);
-			is.close();
-
-			IRC_ENABLED = Boolean.parseBoolean(IRCSettings.getProperty("Enable", "false"));
-			IRC_LOG_CHAT = Boolean.parseBoolean(IRCSettings.getProperty("LogChat", "false"));
-			IRC_SSL = Boolean.parseBoolean(IRCSettings.getProperty("SSL", "false"));
-			IRC_SERVER = IRCSettings.getProperty("Server", "localhost");
-			IRC_PORT = Integer.parseInt(IRCSettings.getProperty("Port", "6667"));
-			IRC_PASS = IRCSettings.getProperty("Pass", "localhost");
-			IRC_NICK = IRCSettings.getProperty("Nick", "l24teamBot");
-			IRC_USER = IRCSettings.getProperty("User", "l24team");
-			IRC_NAME = IRCSettings.getProperty("Name", "l24team");
-			IRC_NICKSERV = Boolean.parseBoolean(IRCSettings.getProperty("NickServ", "false"));
-			IRC_NICKSERV_NAME = IRCSettings.getProperty("NickservName", "nickserv");
-			IRC_NICKSERV_COMMAND = IRCSettings.getProperty("NickservCommand", "");
-			IRC_LOGIN_COMMAND = IRCSettings.getProperty("LoginCommand", "");
-			IRC_CHANNEL = IRCSettings.getProperty("Channel", "#mychan");
-			IRC_ANNOUNCE = Boolean.parseBoolean(IRCSettings.getProperty("IrcAnnounces", "false"));
-			IRC_FROM_GAME_TYPE = IRCSettings.getProperty("GameToIrcType", "off");
-			IRC_TO_GAME_TYPE = IRCSettings.getProperty("IrcToGameType", "off");
-			IRC_TO_GAME_SPECIAL_CHAR = IRCSettings.getProperty("IrcToGameSpecialChar", "#");
-			IRC_TO_GAME_DISPLAY = IRCSettings.getProperty("IrcToGameDisplay", "trade");
-			IRC_NO_GM_MSG = IRCSettings.getProperty("IrcNoGmMsg", "There are not any GMs that are providing customer service currently");
-			IRC_NO_PLAYER_ONLINE = IRCSettings.getProperty("IrcNoPlayerOnlineMsg", "No Players currently online");
-			IRC_PLAYER_ONLINE = IRCSettings.getProperty("IrcPlayerOnlineMsg", "Players currently online:");
-			IRC_MSG_START = IRCSettings.getProperty("IrcMsgStart", "l24team Gameserver started");
-		}
-		catch (final Exception e)
-		{
-			e.printStackTrace();
-			throw new Error("Failed to Load " + IRC_FILE + " File.");
-		}
-	}
-
-	// ============================================================
 
 	// ============================================================
 	public static boolean REBIRTH_ENABLE;
@@ -2453,128 +2333,128 @@ public final class Config
 	public static String PVP2_CUSTOM_MESSAGE;
 
 	// ============================================================
-	public static void loadl24teamConfig()
+	public static void loadL24ModsConfig()
 	{
-		final String l24team = FService.l24team_CONFIG_FILE;
+		final String L24Mods = FService.L24Mods_CONFIG_FILE;
 
 		try
 		{
-			final Properties l24teamSettings = new Properties();
-			final InputStream is = new FileInputStream(new File(l24team));
-			l24teamSettings.load(is);
+			final Properties l24modsSettings = new Properties();
+			final InputStream is = new FileInputStream(new File(L24Mods));
+			l24modsSettings.load(is);
 			is.close();
 
 			/** Custom Tables **/
-			CUSTOM_SPAWNLIST_TABLE = Boolean.valueOf(l24teamSettings.getProperty("CustomSpawnlistTable", "True"));
-			SAVE_GMSPAWN_ON_CUSTOM = Boolean.valueOf(l24teamSettings.getProperty("SaveGmSpawnOnCustom", "True"));
-			DELETE_GMSPAWN_ON_CUSTOM = Boolean.valueOf(l24teamSettings.getProperty("DeleteGmSpawnOnCustom", "True"));
+			CUSTOM_SPAWNLIST_TABLE = Boolean.valueOf(l24modsSettings.getProperty("CustomSpawnlistTable", "True"));
+			SAVE_GMSPAWN_ON_CUSTOM = Boolean.valueOf(l24modsSettings.getProperty("SaveGmSpawnOnCustom", "True"));
+			DELETE_GMSPAWN_ON_CUSTOM = Boolean.valueOf(l24modsSettings.getProperty("DeleteGmSpawnOnCustom", "True"));
 
-			ONLINE_PLAYERS_ON_LOGIN = Boolean.valueOf(l24teamSettings.getProperty("OnlineOnLogin", "False"));
-			SHOW_SERVER_VERSION = Boolean.valueOf(l24teamSettings.getProperty("ShowServerVersion", "False"));
+			ONLINE_PLAYERS_ON_LOGIN = Boolean.valueOf(l24modsSettings.getProperty("OnlineOnLogin", "False"));
+			SHOW_SERVER_VERSION = Boolean.valueOf(l24modsSettings.getProperty("ShowServerVersion", "False"));
 
 			/** Protector **/
-			PROTECTOR_PLAYER_PK = Boolean.parseBoolean(l24teamSettings.getProperty("ProtectorPlayerPK", "false"));
-			PROTECTOR_PLAYER_PVP = Boolean.parseBoolean(l24teamSettings.getProperty("ProtectorPlayerPVP", "false"));
-			PROTECTOR_RADIUS_ACTION = Integer.parseInt(l24teamSettings.getProperty("ProtectorRadiusAction", "500"));
-			PROTECTOR_SKILLID = Integer.parseInt(l24teamSettings.getProperty("ProtectorSkillId", "1069"));
-			PROTECTOR_SKILLLEVEL = Integer.parseInt(l24teamSettings.getProperty("ProtectorSkillLevel", "42"));
-			PROTECTOR_SKILLTIME = Integer.parseInt(l24teamSettings.getProperty("ProtectorSkillTime", "800"));
-			PROTECTOR_MESSAGE = l24teamSettings.getProperty("ProtectorMessage", "Protector, not spawnkilling here, go read the rules !!!");
+			PROTECTOR_PLAYER_PK = Boolean.parseBoolean(l24modsSettings.getProperty("ProtectorPlayerPK", "false"));
+			PROTECTOR_PLAYER_PVP = Boolean.parseBoolean(l24modsSettings.getProperty("ProtectorPlayerPVP", "false"));
+			PROTECTOR_RADIUS_ACTION = Integer.parseInt(l24modsSettings.getProperty("ProtectorRadiusAction", "500"));
+			PROTECTOR_SKILLID = Integer.parseInt(l24modsSettings.getProperty("ProtectorSkillId", "1069"));
+			PROTECTOR_SKILLLEVEL = Integer.parseInt(l24modsSettings.getProperty("ProtectorSkillLevel", "42"));
+			PROTECTOR_SKILLTIME = Integer.parseInt(l24modsSettings.getProperty("ProtectorSkillTime", "800"));
+			PROTECTOR_MESSAGE = l24modsSettings.getProperty("ProtectorMessage", "Protector, not spawnkilling here, go read the rules !!!");
 
 			/** Donator color name **/
-			DONATOR_NAME_COLOR_ENABLED = Boolean.parseBoolean(l24teamSettings.getProperty("DonatorNameColorEnabled", "False"));
-			DONATOR_NAME_COLOR = Integer.decode("0x" + l24teamSettings.getProperty("DonatorColorName", "00FFFF"));
-			DONATOR_TITLE_COLOR = Integer.decode("0x" + l24teamSettings.getProperty("DonatorTitleColor", "00FF00"));
-			DONATOR_XPSP_RATE = Float.parseFloat(l24teamSettings.getProperty("DonatorXpSpRate", "1.5"));
-			DONATOR_ADENA_RATE = Float.parseFloat(l24teamSettings.getProperty("DonatorAdenaRate", "1.5"));
-			DONATOR_DROP_RATE = Float.parseFloat(l24teamSettings.getProperty("DonatorDropRate", "1.5"));
-			DONATOR_SPOIL_RATE = Float.parseFloat(l24teamSettings.getProperty("DonatorSpoilRate", "1.5"));
+			DONATOR_NAME_COLOR_ENABLED = Boolean.parseBoolean(l24modsSettings.getProperty("DonatorNameColorEnabled", "False"));
+			DONATOR_NAME_COLOR = Integer.decode("0x" + l24modsSettings.getProperty("DonatorColorName", "00FFFF"));
+			DONATOR_TITLE_COLOR = Integer.decode("0x" + l24modsSettings.getProperty("DonatorTitleColor", "00FF00"));
+			DONATOR_XPSP_RATE = Float.parseFloat(l24modsSettings.getProperty("DonatorXpSpRate", "1.5"));
+			DONATOR_ADENA_RATE = Float.parseFloat(l24modsSettings.getProperty("DonatorAdenaRate", "1.5"));
+			DONATOR_DROP_RATE = Float.parseFloat(l24modsSettings.getProperty("DonatorDropRate", "1.5"));
+			DONATOR_SPOIL_RATE = Float.parseFloat(l24modsSettings.getProperty("DonatorSpoilRate", "1.5"));
 
 			/** Welcome Htm **/
-			WELCOME_HTM = Boolean.parseBoolean(l24teamSettings.getProperty("WelcomeHtm", "False"));
+			WELCOME_HTM = Boolean.parseBoolean(l24modsSettings.getProperty("WelcomeHtm", "False"));
 
 			/** Server Name **/
-			ALT_SERVER_NAME_ENABLED = Boolean.parseBoolean(l24teamSettings.getProperty("ServerNameEnabled", "false"));
-			ANNOUNCE_TO_ALL_SPAWN_RB = Boolean.parseBoolean(l24teamSettings.getProperty("AnnounceToAllSpawnRb", "false"));
-			ANNOUNCE_TRY_BANNED_ACCOUNT = Boolean.parseBoolean(l24teamSettings.getProperty("AnnounceTryBannedAccount", "false"));
-			ALT_Server_Name = String.valueOf(l24teamSettings.getProperty("ServerName"));
-			DIFFERENT_Z_CHANGE_OBJECT = Integer.parseInt(l24teamSettings.getProperty("DifferentZchangeObject", "650"));
-			DIFFERENT_Z_NEW_MOVIE = Integer.parseInt(l24teamSettings.getProperty("DifferentZnewmovie", "1000"));
+			ALT_SERVER_NAME_ENABLED = Boolean.parseBoolean(l24modsSettings.getProperty("ServerNameEnabled", "false"));
+			ANNOUNCE_TO_ALL_SPAWN_RB = Boolean.parseBoolean(l24modsSettings.getProperty("AnnounceToAllSpawnRb", "false"));
+			ANNOUNCE_TRY_BANNED_ACCOUNT = Boolean.parseBoolean(l24modsSettings.getProperty("AnnounceTryBannedAccount", "false"));
+			ALT_Server_Name = String.valueOf(l24modsSettings.getProperty("ServerName"));
+			DIFFERENT_Z_CHANGE_OBJECT = Integer.parseInt(l24modsSettings.getProperty("DifferentZchangeObject", "650"));
+			DIFFERENT_Z_NEW_MOVIE = Integer.parseInt(l24modsSettings.getProperty("DifferentZnewmovie", "1000"));
 
-			ALLOW_SIMPLE_STATS_VIEW = Boolean.valueOf(l24teamSettings.getProperty("AllowSimpleStatsView", "True"));
-			ALLOW_DETAILED_STATS_VIEW = Boolean.valueOf(l24teamSettings.getProperty("AllowDetailedStatsView", "False"));
-			ALLOW_ONLINE_VIEW = Boolean.valueOf(l24teamSettings.getProperty("AllowOnlineView", "False"));
+			ALLOW_SIMPLE_STATS_VIEW = Boolean.valueOf(l24modsSettings.getProperty("AllowSimpleStatsView", "True"));
+			ALLOW_DETAILED_STATS_VIEW = Boolean.valueOf(l24modsSettings.getProperty("AllowDetailedStatsView", "False"));
+			ALLOW_ONLINE_VIEW = Boolean.valueOf(l24modsSettings.getProperty("AllowOnlineView", "False"));
 
-			KEEP_SUBCLASS_SKILLS = Boolean.parseBoolean(l24teamSettings.getProperty("KeepSubClassSkills", "False"));
+			KEEP_SUBCLASS_SKILLS = Boolean.parseBoolean(l24modsSettings.getProperty("KeepSubClassSkills", "False"));
 
-			ALLOWED_SKILLS = l24teamSettings.getProperty("AllowedSkills", "541,542,543,544,545,546,547,548,549,550,551,552,553,554,555,556,557,558,617,618,619");
+			ALLOWED_SKILLS = l24modsSettings.getProperty("AllowedSkills", "541,542,543,544,545,546,547,548,549,550,551,552,553,554,555,556,557,558,617,618,619");
 			ALLOWED_SKILLS_LIST = new FastList<>();
 			for (final String id : ALLOWED_SKILLS.trim().split(","))
 			{
 				ALLOWED_SKILLS_LIST.add(Integer.parseInt(id.trim()));
 			}
-			CASTLE_SHIELD = Boolean.parseBoolean(l24teamSettings.getProperty("CastleShieldRestriction", "true"));
-			CLANHALL_SHIELD = Boolean.parseBoolean(l24teamSettings.getProperty("ClanHallShieldRestriction", "true"));
-			APELLA_ARMORS = Boolean.parseBoolean(l24teamSettings.getProperty("ApellaArmorsRestriction", "true"));
-			OATH_ARMORS = Boolean.parseBoolean(l24teamSettings.getProperty("OathArmorsRestriction", "true"));
-			CASTLE_CROWN = Boolean.parseBoolean(l24teamSettings.getProperty("CastleLordsCrownRestriction", "true"));
-			CASTLE_CIRCLETS = Boolean.parseBoolean(l24teamSettings.getProperty("CastleCircletsRestriction", "true"));
-			CHAR_TITLE = Boolean.parseBoolean(l24teamSettings.getProperty("CharTitle", "false"));
-			ADD_CHAR_TITLE = l24teamSettings.getProperty("CharAddTitle", "Welcome");
+			CASTLE_SHIELD = Boolean.parseBoolean(l24modsSettings.getProperty("CastleShieldRestriction", "true"));
+			CLANHALL_SHIELD = Boolean.parseBoolean(l24modsSettings.getProperty("ClanHallShieldRestriction", "true"));
+			APELLA_ARMORS = Boolean.parseBoolean(l24modsSettings.getProperty("ApellaArmorsRestriction", "true"));
+			OATH_ARMORS = Boolean.parseBoolean(l24modsSettings.getProperty("OathArmorsRestriction", "true"));
+			CASTLE_CROWN = Boolean.parseBoolean(l24modsSettings.getProperty("CastleLordsCrownRestriction", "true"));
+			CASTLE_CIRCLETS = Boolean.parseBoolean(l24modsSettings.getProperty("CastleCircletsRestriction", "true"));
+			CHAR_TITLE = Boolean.parseBoolean(l24modsSettings.getProperty("CharTitle", "false"));
+			ADD_CHAR_TITLE = l24modsSettings.getProperty("CharAddTitle", "Welcome");
 
-			NOBLE_CUSTOM_ITEMS = Boolean.parseBoolean(l24teamSettings.getProperty("EnableNobleCustomItem", "true"));
-			NOOBLE_CUSTOM_ITEM_ID = Integer.parseInt(l24teamSettings.getProperty("NoobleCustomItemId", "6673"));
-			HERO_CUSTOM_ITEMS = Boolean.parseBoolean(l24teamSettings.getProperty("EnableHeroCustomItem", "true"));
-			HERO_CUSTOM_ITEM_ID = Integer.parseInt(l24teamSettings.getProperty("HeroCustomItemId", "3481"));
-			HERO_CUSTOM_DAY = Integer.parseInt(l24teamSettings.getProperty("HeroCustomDay", "0"));
+			NOBLE_CUSTOM_ITEMS = Boolean.parseBoolean(l24modsSettings.getProperty("EnableNobleCustomItem", "true"));
+			NOOBLE_CUSTOM_ITEM_ID = Integer.parseInt(l24modsSettings.getProperty("NoobleCustomItemId", "6673"));
+			HERO_CUSTOM_ITEMS = Boolean.parseBoolean(l24modsSettings.getProperty("EnableHeroCustomItem", "true"));
+			HERO_CUSTOM_ITEM_ID = Integer.parseInt(l24modsSettings.getProperty("HeroCustomItemId", "3481"));
+			HERO_CUSTOM_DAY = Integer.parseInt(l24modsSettings.getProperty("HeroCustomDay", "0"));
 
-			ALLOW_CREATE_LVL = Boolean.parseBoolean(l24teamSettings.getProperty("CustomStartingLvl", "False"));
-			CHAR_CREATE_LVL = Integer.parseInt(l24teamSettings.getProperty("CharLvl", "80"));
-			SPAWN_CHAR = Boolean.parseBoolean(l24teamSettings.getProperty("CustomSpawn", "false"));
-			SPAWN_X = Integer.parseInt(l24teamSettings.getProperty("SpawnX", ""));
-			SPAWN_Y = Integer.parseInt(l24teamSettings.getProperty("SpawnY", ""));
-			SPAWN_Z = Integer.parseInt(l24teamSettings.getProperty("SpawnZ", ""));
-			ALLOW_LOW_LEVEL_TRADE = Boolean.parseBoolean(l24teamSettings.getProperty("AllowLowLevelTrade", "True"));
-			ALLOW_HERO_SUBSKILL = Boolean.parseBoolean(l24teamSettings.getProperty("CustomHeroSubSkill", "False"));
-			HERO_COUNT = Integer.parseInt(l24teamSettings.getProperty("HeroCount", "1"));
-			CRUMA_TOWER_LEVEL_RESTRICT = Integer.parseInt(l24teamSettings.getProperty("CrumaTowerLevelRestrict", "56"));
-			ALLOW_RAID_BOSS_PETRIFIED = Boolean.valueOf(l24teamSettings.getProperty("AllowRaidBossPetrified", "True"));
-			ALT_PLAYER_PROTECTION_LEVEL = Integer.parseInt(l24teamSettings.getProperty("AltPlayerProtectionLevel", "0"));
-			MONSTER_RETURN_DELAY = Integer.parseInt(l24teamSettings.getProperty("MonsterReturnDelay", "1200"));
-			SCROLL_STACKABLE = Boolean.parseBoolean(l24teamSettings.getProperty("ScrollStackable", "False"));
-			ALLOW_CHAR_KILL_PROTECT = Boolean.parseBoolean(l24teamSettings.getProperty("AllowLowLvlProtect", "False"));
-			CLAN_LEADER_COLOR_ENABLED = Boolean.parseBoolean(l24teamSettings.getProperty("ClanLeaderNameColorEnabled", "true"));
-			CLAN_LEADER_COLORED = Integer.parseInt(l24teamSettings.getProperty("ClanLeaderColored", "1"));
-			CLAN_LEADER_COLOR = Integer.decode("0x" + l24teamSettings.getProperty("ClanLeaderColor", "00FFFF"));
-			CLAN_LEADER_COLOR_CLAN_LEVEL = Integer.parseInt(l24teamSettings.getProperty("ClanLeaderColorAtClanLevel", "1"));
-			ALLOW_VERSION_COMMAND = Boolean.parseBoolean(l24teamSettings.getProperty("AllowVersionCommand", "False"));
-			SAVE_RAIDBOSS_STATUS_INTO_DB = Boolean.parseBoolean(l24teamSettings.getProperty("SaveRBStatusIntoDB", "False"));
-			DISABLE_WEIGHT_PENALTY = Boolean.parseBoolean(l24teamSettings.getProperty("DisableWeightPenalty", "False"));
-			ALLOW_FARM1_COMMAND = Boolean.parseBoolean(l24teamSettings.getProperty("AllowFarm1Command", "false"));
-			ALLOW_FARM2_COMMAND = Boolean.parseBoolean(l24teamSettings.getProperty("AllowFarm2Command", "false"));
-			ALLOW_PVP1_COMMAND = Boolean.parseBoolean(l24teamSettings.getProperty("AllowPvP1Command", "false"));
-			ALLOW_PVP2_COMMAND = Boolean.parseBoolean(l24teamSettings.getProperty("AllowPvP2Command", "false"));
-			FARM1_X = Integer.parseInt(l24teamSettings.getProperty("farm1_X", "81304"));
-			FARM1_Y = Integer.parseInt(l24teamSettings.getProperty("farm1_Y", "14589"));
-			FARM1_Z = Integer.parseInt(l24teamSettings.getProperty("farm1_Z", "-3469"));
-			PVP1_X = Integer.parseInt(l24teamSettings.getProperty("pvp1_X", "81304"));
-			PVP1_Y = Integer.parseInt(l24teamSettings.getProperty("pvp1_Y", "14589"));
-			PVP1_Z = Integer.parseInt(l24teamSettings.getProperty("pvp1_Z", "-3469"));
-			FARM2_X = Integer.parseInt(l24teamSettings.getProperty("farm2_X", "81304"));
-			FARM2_Y = Integer.parseInt(l24teamSettings.getProperty("farm2_Y", "14589"));
-			FARM2_Z = Integer.parseInt(l24teamSettings.getProperty("farm2_Z", "-3469"));
-			PVP2_X = Integer.parseInt(l24teamSettings.getProperty("pvp2_X", "81304"));
-			PVP2_Y = Integer.parseInt(l24teamSettings.getProperty("pvp2_Y", "14589"));
-			PVP2_Z = Integer.parseInt(l24teamSettings.getProperty("pvp2_Z", "-3469"));
-			FARM1_CUSTOM_MESSAGE = l24teamSettings.getProperty("Farm1CustomMeesage", "You have been teleported to Farm Zone 1!");
-			FARM2_CUSTOM_MESSAGE = l24teamSettings.getProperty("Farm2CustomMeesage", "You have been teleported to Farm Zone 2!");
-			PVP1_CUSTOM_MESSAGE = l24teamSettings.getProperty("PvP1CustomMeesage", "You have been teleported to PvP Zone 1!");
-			PVP2_CUSTOM_MESSAGE = l24teamSettings.getProperty("PvP2CustomMeesage", "You have been teleported to PvP Zone 2!");
+			ALLOW_CREATE_LVL = Boolean.parseBoolean(l24modsSettings.getProperty("CustomStartingLvl", "False"));
+			CHAR_CREATE_LVL = Integer.parseInt(l24modsSettings.getProperty("CharLvl", "80"));
+			SPAWN_CHAR = Boolean.parseBoolean(l24modsSettings.getProperty("CustomSpawn", "false"));
+			SPAWN_X = Integer.parseInt(l24modsSettings.getProperty("SpawnX", ""));
+			SPAWN_Y = Integer.parseInt(l24modsSettings.getProperty("SpawnY", ""));
+			SPAWN_Z = Integer.parseInt(l24modsSettings.getProperty("SpawnZ", ""));
+			ALLOW_LOW_LEVEL_TRADE = Boolean.parseBoolean(l24modsSettings.getProperty("AllowLowLevelTrade", "True"));
+			ALLOW_HERO_SUBSKILL = Boolean.parseBoolean(l24modsSettings.getProperty("CustomHeroSubSkill", "False"));
+			HERO_COUNT = Integer.parseInt(l24modsSettings.getProperty("HeroCount", "1"));
+			CRUMA_TOWER_LEVEL_RESTRICT = Integer.parseInt(l24modsSettings.getProperty("CrumaTowerLevelRestrict", "56"));
+			ALLOW_RAID_BOSS_PETRIFIED = Boolean.valueOf(l24modsSettings.getProperty("AllowRaidBossPetrified", "True"));
+			ALT_PLAYER_PROTECTION_LEVEL = Integer.parseInt(l24modsSettings.getProperty("AltPlayerProtectionLevel", "0"));
+			MONSTER_RETURN_DELAY = Integer.parseInt(l24modsSettings.getProperty("MonsterReturnDelay", "1200"));
+			SCROLL_STACKABLE = Boolean.parseBoolean(l24modsSettings.getProperty("ScrollStackable", "False"));
+			ALLOW_CHAR_KILL_PROTECT = Boolean.parseBoolean(l24modsSettings.getProperty("AllowLowLvlProtect", "False"));
+			CLAN_LEADER_COLOR_ENABLED = Boolean.parseBoolean(l24modsSettings.getProperty("ClanLeaderNameColorEnabled", "true"));
+			CLAN_LEADER_COLORED = Integer.parseInt(l24modsSettings.getProperty("ClanLeaderColored", "1"));
+			CLAN_LEADER_COLOR = Integer.decode("0x" + l24modsSettings.getProperty("ClanLeaderColor", "00FFFF"));
+			CLAN_LEADER_COLOR_CLAN_LEVEL = Integer.parseInt(l24modsSettings.getProperty("ClanLeaderColorAtClanLevel", "1"));
+			ALLOW_VERSION_COMMAND = Boolean.parseBoolean(l24modsSettings.getProperty("AllowVersionCommand", "False"));
+			SAVE_RAIDBOSS_STATUS_INTO_DB = Boolean.parseBoolean(l24modsSettings.getProperty("SaveRBStatusIntoDB", "False"));
+			DISABLE_WEIGHT_PENALTY = Boolean.parseBoolean(l24modsSettings.getProperty("DisableWeightPenalty", "False"));
+			ALLOW_FARM1_COMMAND = Boolean.parseBoolean(l24modsSettings.getProperty("AllowFarm1Command", "false"));
+			ALLOW_FARM2_COMMAND = Boolean.parseBoolean(l24modsSettings.getProperty("AllowFarm2Command", "false"));
+			ALLOW_PVP1_COMMAND = Boolean.parseBoolean(l24modsSettings.getProperty("AllowPvP1Command", "false"));
+			ALLOW_PVP2_COMMAND = Boolean.parseBoolean(l24modsSettings.getProperty("AllowPvP2Command", "false"));
+			FARM1_X = Integer.parseInt(l24modsSettings.getProperty("farm1_X", "81304"));
+			FARM1_Y = Integer.parseInt(l24modsSettings.getProperty("farm1_Y", "14589"));
+			FARM1_Z = Integer.parseInt(l24modsSettings.getProperty("farm1_Z", "-3469"));
+			PVP1_X = Integer.parseInt(l24modsSettings.getProperty("pvp1_X", "81304"));
+			PVP1_Y = Integer.parseInt(l24modsSettings.getProperty("pvp1_Y", "14589"));
+			PVP1_Z = Integer.parseInt(l24modsSettings.getProperty("pvp1_Z", "-3469"));
+			FARM2_X = Integer.parseInt(l24modsSettings.getProperty("farm2_X", "81304"));
+			FARM2_Y = Integer.parseInt(l24modsSettings.getProperty("farm2_Y", "14589"));
+			FARM2_Z = Integer.parseInt(l24modsSettings.getProperty("farm2_Z", "-3469"));
+			PVP2_X = Integer.parseInt(l24modsSettings.getProperty("pvp2_X", "81304"));
+			PVP2_Y = Integer.parseInt(l24modsSettings.getProperty("pvp2_Y", "14589"));
+			PVP2_Z = Integer.parseInt(l24modsSettings.getProperty("pvp2_Z", "-3469"));
+			FARM1_CUSTOM_MESSAGE = l24modsSettings.getProperty("Farm1CustomMeesage", "You have been teleported to Farm Zone 1!");
+			FARM2_CUSTOM_MESSAGE = l24modsSettings.getProperty("Farm2CustomMeesage", "You have been teleported to Farm Zone 2!");
+			PVP1_CUSTOM_MESSAGE = l24modsSettings.getProperty("PvP1CustomMeesage", "You have been teleported to PvP Zone 1!");
+			PVP2_CUSTOM_MESSAGE = l24modsSettings.getProperty("PvP2CustomMeesage", "You have been teleported to PvP Zone 2!");
 		}
 		catch (final Exception e)
 		{
 			e.printStackTrace();
-			throw new Error("Failed to Load " + l24team + " File.");
+			throw new Error("Failed to Load " + L24Mods + " File.");
 		}
 	}
 
@@ -4581,7 +4461,7 @@ public final class Config
 			loadBossConfig();
 
 			// Head functions
-			loadl24teamConfig();
+			loadL24ModsConfig();
 			loadPHYSICSConfig();
 			loadAccessConfig();
 			loadPvpConfig();
@@ -4593,7 +4473,6 @@ public final class Config
 			loadL24TeamConfig();
 			loadTVTConfig();
 			loadTWConfig();
-			loadIRCConfig();
 
 			// Protect
 			loadFloodConfig();
@@ -4615,8 +4494,6 @@ public final class Config
 
 			// Other
 			loadKeyOptions();
-			loadDPVersionConfig();
-			loadServerVersionConfig();
 			loadExtendersConfig();
 			loadDaemonsConf();
 

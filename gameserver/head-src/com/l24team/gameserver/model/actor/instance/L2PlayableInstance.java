@@ -155,7 +155,7 @@ public abstract class L2PlayableInstance extends L2Character
 		{
 			return false; // Target is not a L2PlayableInstance
 		}
-		
+
 		L2PcInstance player = null;
 		if (this instanceof L2PcInstance)
 		{
@@ -166,15 +166,11 @@ public abstract class L2PlayableInstance extends L2Character
 			player = ((L2Summon) this).getOwner();
 		}
 
-		if (player == null)
-		{
-			return false; // Active player is null
-		}
-		if (player.getKarma() != 0)
+		if ((player == null) || (player.getKarma() != 0))
 		{
 			return false; // Active player has karma
 		}
-		
+
 		L2PcInstance targetPlayer = null;
 		if (target instanceof L2PcInstance)
 		{

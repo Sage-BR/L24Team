@@ -140,7 +140,7 @@ public class Base64
 			(byte) '+',
 			(byte) '/'
 		};
-		
+
 	/** Determine which ALPHABET to use. */
 	static
 	{
@@ -388,21 +388,21 @@ public class Base64
 				destination[destOffset + 2] = ALPHABET[(inBuff >>> 6) & 0x3f];
 				destination[destOffset + 3] = ALPHABET[inBuff & 0x3f];
 				return destination;
-			
+
 			case 2:
 				destination[destOffset] = ALPHABET[(inBuff >>> 18)];
 				destination[destOffset + 1] = ALPHABET[(inBuff >>> 12) & 0x3f];
 				destination[destOffset + 2] = ALPHABET[(inBuff >>> 6) & 0x3f];
 				destination[destOffset + 3] = EQUALS_SIGN;
 				return destination;
-			
+
 			case 1:
 				destination[destOffset] = ALPHABET[(inBuff >>> 18)];
 				destination[destOffset + 1] = ALPHABET[(inBuff >>> 12) & 0x3f];
 				destination[destOffset + 2] = EQUALS_SIGN;
 				destination[destOffset + 3] = EQUALS_SIGN;
 				return destination;
-			
+
 			default:
 				return destination;
 		} // end switch

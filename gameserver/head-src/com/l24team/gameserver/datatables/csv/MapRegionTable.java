@@ -407,7 +407,7 @@ public class MapRegionTable
 			default:
 				nearestTown = "Town of Aden";
 				break;
-			
+
 		}
 
 		return nearestTown;

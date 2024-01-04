@@ -119,7 +119,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 				return true;
 			/*
 			*/
-			
+
 			case admin_announce_announcements:
 				for (final L2PcInstance player : L2World.getInstance().getAllPlayers())
 				{
@@ -144,7 +144,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 				}
 				activeChar.sendMessage("You cannot announce Empty message");
 				return false;
-			
+
 			case admin_del_announcement:
 
 				if (st.hasMoreTokens())
@@ -178,7 +178,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 
 				Announcements.getInstance().handleAnnounce(command, 15);
 				return true;
-			
+
 			case admin_critannounce:
 
 				String text1 = command.substring(19);
@@ -190,11 +190,11 @@ public class AdminAnnouncements implements IAdminCommandHandler
 				final CreatureSay cs = new CreatureSay(activeChar.getObjectId(), Say2.CRITICAL_ANNOUNCE, "", text1);
 				Broadcast.toAllOnlinePlayers(cs);
 				return true;
-			
+
 			case admin_list_autoannouncements:
 				AutoAnnouncementHandler.getInstance().listAutoAnnouncements(activeChar);
 				return true;
-			
+
 			case admin_add_autoannouncement:
 
 				if (st.hasMoreTokens())

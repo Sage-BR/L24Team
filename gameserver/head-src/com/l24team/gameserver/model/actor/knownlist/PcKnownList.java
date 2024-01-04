@@ -275,7 +275,7 @@ public class PcKnownList extends PlayableKnownList
 		 */
 		if ((object_char != null) && !active_char.isGM())
 		{ // GM has to receive remove however because he can see any invisible or inobservermode player
-			
+
 			if (!object_char.getAppearance().getInvisible() && !object_char.inObserverMode())
 			{
 				// Send Server-Client Packet DeleteObject to the L2PcInstance
@@ -289,7 +289,7 @@ public class PcKnownList extends PlayableKnownList
 		}
 		else
 		{ // All other objects has to be removed
-			
+
 			// Send Server-Client Packet DeleteObject to the L2PcInstance
 			active_char.sendPacket(new DeleteObject(object));
 		}
@@ -347,7 +347,7 @@ public class PcKnownList extends PlayableKnownList
 		{
 			return 3500; // empty field
 		}
-		
+
 		if (knownlistSize <= 35)
 		{
 			return 2900;

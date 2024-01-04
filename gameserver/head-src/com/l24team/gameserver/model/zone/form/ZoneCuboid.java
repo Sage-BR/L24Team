@@ -98,22 +98,7 @@ public class ZoneCuboid extends L2ZoneForm
 		}
 
 		// Horizontal lines may intersect vertical lines
-		if (lineIntersectsLine(_x1, _y1, _x2, _y1, ax1, ay1, ax1, ay2))
-		{
-			return true;
-		}
-
-		if (lineIntersectsLine(_x1, _y1, _x2, _y1, ax2, ay1, ax2, ay2))
-		{
-			return true;
-		}
-
-		if (lineIntersectsLine(_x1, _y2, _x2, _y2, ax1, ay1, ax1, ay2))
-		{
-			return true;
-		}
-
-		if (lineIntersectsLine(_x1, _y2, _x2, _y2, ax2, ay1, ax2, ay2))
+		if (lineIntersectsLine(_x1, _y1, _x2, _y1, ax1, ay1, ax1, ay2) || lineIntersectsLine(_x1, _y1, _x2, _y1, ax2, ay1, ax2, ay2) || lineIntersectsLine(_x1, _y2, _x2, _y2, ax1, ay1, ax1, ay2) || lineIntersectsLine(_x1, _y2, _x2, _y2, ax2, ay1, ax2, ay2))
 		{
 			return true;
 		}
@@ -153,7 +138,7 @@ public class ZoneCuboid extends L2ZoneForm
 		{
 			return 0; // If you are inside the zone distance to zone is 0.
 		}
-		
+
 		double test, shortestDist = Math.pow(_x1 - x, 2) + Math.pow(_y1 - y, 2);
 
 		test = Math.pow(_x1 - x, 2) + Math.pow(_y2 - y, 2);

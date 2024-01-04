@@ -423,14 +423,8 @@ public class L2CharacterAI extends AbstractAI
 		}
 
 		// Dead actors can`t follow
-		if (_actor.isDead())
-		{
-			clientActionFailed();
-			return;
-		}
-
 		// do not follow yourself
-		if (_actor == target)
+		if (_actor.isDead() || (_actor == target))
 		{
 			clientActionFailed();
 			return;

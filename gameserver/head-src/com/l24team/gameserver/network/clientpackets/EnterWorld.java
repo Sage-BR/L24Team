@@ -326,7 +326,7 @@ public class EnterWorld extends L2GameClientPacket
 		{
 			sendPacket(new Die(activeChar)); // No broadcast needed since the player will already spawn dead to others
 		}
-		
+
 		if (Config.ALLOW_WATER)
 		{
 			activeChar.checkWaterState();

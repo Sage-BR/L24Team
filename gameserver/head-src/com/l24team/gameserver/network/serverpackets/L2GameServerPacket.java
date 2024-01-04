@@ -21,7 +21,6 @@ package com.l24team.gameserver.network.serverpackets;
 
 import org.apache.log4j.Logger;
 
-import com.l24team.Config;
 import com.l24team.gameserver.network.L2GameClient;
 import com.l24team.netcore.SendablePacket;
 
@@ -44,7 +43,7 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient>
 		}
 		catch (final Throwable t)
 		{
-			LOGGER.error("Client: " + getClient().toString() + " - Failed writing: " + getType() + " - L2J Server Version: " + Config.SERVER_VERSION + " - DP Revision: " + Config.DATAPACK_VERSION, t);
+			LOGGER.error("Client: " + getClient().toString() + " - Failed writing: " + getType() + t);
 			t.printStackTrace();
 		}
 	}

@@ -1623,7 +1623,7 @@ public class Quest extends ManagedScript
 			{
 				return player; // match
 			}
-			
+
 			return null; // no match
 		}
 
@@ -1692,7 +1692,7 @@ public class Quest extends ManagedScript
 			{
 				return player; // match
 			}
-			
+
 			return null; // no match
 		}
 
